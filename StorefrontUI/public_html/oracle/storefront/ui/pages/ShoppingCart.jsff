@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="storefrontuiBundle"
+         value="#{adfBundle['oracle.storefront.ui.StorefrontUIBundle']}"/>
+  <af:panelHeader text="#{storefrontuiBundle.SHOPPING_CART}" id="cikph1"
+                  styleClass="AFStretchWidth">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:group id="cikg1">
+        <af:commandButton text="#{storefrontuiBundle.SHOP}" action="shop"
+                          id="cikcb1"/>
+        <af:commandButton text="#{storefrontuiBundle.CHECKOUT}"
+                          action="checkout" id="cikcb2"/>
+        <af:toolbar id="cikt1"/>
+      </af:group>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelCollection id="cikpc1">
+      <f:facet name="menus"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="cikt2">
+          <af:commandToolbarButton actionListener="#{bindings.Commit.execute}"
+                                   text="#{storefrontuiBundle.UPDATE}"
+                                   id="updateMenu"/>
+          <af:commandToolbarButton text="#{storefrontuiBundle.DELETE}"
+                                   id="deleteMenu"
+                                   actionListener="#{FODCommitDeleteBean.onDeleteItem}"/>
+          <af:commandToolbarButton text="#{storefrontuiBundle.DETAILS}"
+                                   id="cikctb1">
+            <af:showPopupBehavior popupId="productDetails"/>
+          </af:commandToolbarButton>
+        </af:toolbar>
+      </f:facet>
+      <f:facet name="statusbar"/>
+      <af:table value="#{bindings.ShoppingCartItem1.collectionModel}" var="row"
+                rows="#{bindings.ShoppingCartItem1.rangeSize}"
+                emptyText="#{bindings.ShoppingCartItem1.viewable ? 'No rows yet.' : 'Access Denied.'}"
+                fetchSize="#{bindings.ShoppingCartItem1.rangeSize}"
+                selectedRowKeys="#{bindings.ShoppingCartItem1.collectionModel.selectedRow}"
+                selectionListener="#{bindings.ShoppingCartItem1.collectionModel.makeCurrent}"
+                rowSelection="single" width="100%" columnStretching="last"
+                partialTriggers="::updateMenu ::deleteMenu" id="cikt3">
+        <af:column sortProperty="ProductName" sortable="false"
+                   headerText="#{bindings.ShoppingCartItem1.hints.ProductName.label}"
+                   id="cikc1">
+          <af:outputText value="#{row.ProductName}" id="cikot1"/>
+        </af:column>
+        <af:column sortProperty="ListPrice" sortable="false"
+                   headerText="#{bindings.ShoppingCartItem1.hints.ListPrice.label}"
+                   id="cikc2">
+          <af:outputText value="#{row.ListPrice}" id="cikot2">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.ShoppingCartItem1.hints.ListPrice.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="Quantity" sortable="false"
+                   headerText="#{bindings.ShoppingCartItem1.hints.Quantity.label}"
+                   id="cikc3">
+          <af:inputText value="#{row.Quantity}" id="cikit1">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.ShoppingCartItem1.hints.Quantity.format}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="LineTotal" sortable="false"
+                   headerText="#{bindings.ShoppingCartItem1.hints.LineTotal.label}"
+                   id="cikc4">
+          <af:outputText value="#{row.LineTotal}" id="cikot3">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.ShoppingCartItem1.hints.LineTotal.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:table>
+      <af:popup id="productDetails" contentDelivery="lazyUncached">
+        <af:dialog type="ok" title="#{bindings.ProductName.inputValue}"
+                   id="cikd1">
+          <af:panelFormLayout id="cikpfl1">
+            <af:panelLabelAndMessage label="#{bindings.ProductName.hints.label}"
+                                     id="cikplam1">
+              <af:outputText value="#{bindings.ProductName.inputValue}"
+                             id="cikot4"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Description.hints.label}"
+                                     id="cikplam2">
+              <af:outputText value="#{bindings.Description.inputValue}"
+                             id="cikot5"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.AdditionalInfo.hints.label}"
+                                     id="cikplam3">
+              <af:outputText value="#{bindings.AdditionalInfo.inputValue}"
+                             id="cikot6"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.ListPrice.hints.label}"
+                                     id="cikplam4">
+              <af:outputText value="#{bindings.ListPrice.inputValue}"
+                             id="cikot7">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ListPrice.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:dialog>
+      </af:popup>
+    </af:panelCollection>
+  </af:panelHeader>
+</jsp:root>

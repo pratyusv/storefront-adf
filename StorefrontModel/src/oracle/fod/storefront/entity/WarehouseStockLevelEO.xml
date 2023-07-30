@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="WarehouseStockLevelEO"
+  Version="11.1.1.51.15"
+  DBObjectType="table"
+  DBObjectName="WAREHOUSE_STOCK_LEVELS"
+  AliasName="WarehouseStockLevelEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="oracle.fod.storefront.entity.WarehouseStockLevelEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_superClass"
+      Value="oracle.fod.storefront.entity.BaseEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="ProductId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="PRODUCT_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="WAREHOUSE_STOCK_LEVELS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WarehouseId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="WAREHOUSE_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="WAREHOUSE_STOCK_LEVELS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="QuantityOnHand"
+    IsNotNull="true"
+    Precision="8"
+    Scale="0"
+    ColumnName="QUANTITY_ON_HAND"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="WAREHOUSE_STOCK_LEVELS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="CREATED_BY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="WAREHOUSE_STOCK_LEVELS"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    ColumnName="CREATION_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="WAREHOUSE_STOCK_LEVELS"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="LAST_UPDATED_BY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="WAREHOUSE_STOCK_LEVELS"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    ColumnName="LAST_UPDATE_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="WAREHOUSE_STOCK_LEVELS"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ObjectVersionId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="OBJECT_VERSION_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="WAREHOUSE_STOCK_LEVELS"
+    HistoryColumn="VersionHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Warehouse"
+    Association="oracle.fod.storefront.assoc.WarehouseStockLevelsFkAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.WarehouseStockLevelsFkAssoc.Warehouse"
+    AssociationOtherEnd="oracle.fod.storefront.assoc.WarehouseStockLevelsFkAssoc.WarehouseStockLevel"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SysC0012601">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012601"/>
+      <Attr Name="_checkCondition" Value='"PRODUCT_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.fod.storefront.entity.WarehouseStockLevelEO.ProductId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012602">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012602"/>
+      <Attr Name="_checkCondition" Value='"WAREHOUSE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.fod.storefront.entity.WarehouseStockLevelEO.WarehouseId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012603">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012603"/>
+      <Attr Name="_checkCondition" Value='"QUANTITY_ON_HAND" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.fod.storefront.entity.WarehouseStockLevelEO.QuantityOnHand"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012604">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012604"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.fod.storefront.entity.WarehouseStockLevelEO.CreatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012605">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012605"/>
+      <Attr Name="_checkCondition" Value='"CREATION_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.fod.storefront.entity.WarehouseStockLevelEO.CreationDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012606">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012606"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.fod.storefront.entity.WarehouseStockLevelEO.LastUpdatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012607">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012607"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.fod.storefront.entity.WarehouseStockLevelEO.LastUpdateDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012608">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012608"/>
+      <Attr Name="_checkCondition" Value='"OBJECT_VERSION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.fod.storefront.entity.WarehouseStockLevelEO.ObjectVersionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="WarehouseStockLevelsPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="WAREHOUSE_STOCK_LEVELS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.fod.storefront.entity.WarehouseStockLevelEO.ProductId"/>
+      <Item
+        Value="oracle.fod.storefront.entity.WarehouseStockLevelEO.WarehouseId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="WarehouseStockLevelsFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="WAREHOUSES_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="WAREHOUSE_STOCK_LEVELS_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.fod.storefront.entity.WarehouseStockLevelEO.WarehouseId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="WarehouseStockLevelsFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRODUCTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="WAREHOUSE_STOCK_LEVELS_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.fod.storefront.entity.WarehouseStockLevelEO.ProductId"/>
+    </AttrArray>
+  </Key>
+</Entity>

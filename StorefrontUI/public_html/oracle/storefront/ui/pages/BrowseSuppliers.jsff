@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="storefrontuiBundle"
+         value="#{adfBundle['oracle.storefront.ui.StorefrontUIBundle']}"/>
+  <af:panelHeader text="#{storefrontuiBundle.SELECT_A_SUPPLIER_FOR_UPDATE}"
+                  inlineStyle="width:500px;" id="jpcph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="jpct1">
+        <af:commandToolbarButton text="#{storefrontuiBundle.NEW_SUPPLIER}"
+                                 action="update"
+                                 rendered="#{FODSecurityBean.authorizationEnabled ? securityContext.taskflowViewable['/WEB-INF/oracle/storefront/ui/flow/ManageSupplierFlow.xml#ManageSupplierFlow'] : true}"
+                                 id="jpcctb1">
+          <af:setActionListener from="#{'New'}"
+                                to="#{requestScope.SupplierAction}"/>
+        </af:commandToolbarButton>
+        <af:commandToolbarButton actionListener="#{FODCommitDeleteBean.onDeleteItem}"
+                                 text="Delete"
+                                 disabled="#{!bindings.Delete.enabled}"
+                                 partialTriggers="table1" id="deleteSupplier"/>
+      </af:toolbar>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:table value="#{bindings.Supplier1.collectionModel}" var="row"
+              rows="#{bindings.Supplier1.rangeSize}"
+              emptyText="#{bindings.Supplier1.viewable ? 'No rows yet.' : 'Access Denied.'}"
+              fetchSize="#{bindings.Supplier1.rangeSize}"
+              selectedRowKeys="#{bindings.Supplier1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.Supplier1.collectionModel.makeCurrent}"
+              rowSelection="single"
+              id="table1" width="100%"
+              columnStretching="last" partialTriggers="::deleteSupplier">
+      <af:column sortProperty="SupplierId" sortable="true"
+                 headerText="#{bindings.Supplier1.hints.SupplierId.label}"
+                 width="105" id="jpcc1">
+        <af:commandLink action="update" partialSubmit="true" id="jpccl1">
+          <af:outputText value="#{row.SupplierId}" id="jpcot1"/>
+          <af:setActionListener from="#{'Update'}"
+                                to="#{requestScope.SupplierAction}"/>
+        </af:commandLink>
+      </af:column>
+      <af:column sortProperty="SupplierName" sortable="true"
+                 headerText="#{bindings.Supplier1.hints.SupplierName.label}"
+                 width="106" id="jpcc2">
+        <af:outputText value="#{row.SupplierName}" id="jpcot2"/>
+      </af:column>
+      <af:column sortProperty="SupplierStatus" sortable="true"
+                 headerText="#{bindings.Supplier1.hints.SupplierStatus.label}"
+                 width="104" id="jpcc3">
+        <af:outputText value="#{row.SupplierStatus}" id="jpcot3"/>
+      </af:column>
+      <af:column sortProperty="PhoneNumber" sortable="true"
+                 headerText="#{bindings.Supplier1.hints.PhoneNumber.label}"
+                 width="105" id="jpcc4">
+        <af:outputText value="#{row.PhoneNumber}" id="jpcot4"/>
+      </af:column>
+      <af:column sortProperty="Email" sortable="true"
+                 headerText="#{bindings.Supplier1.hints.Email.label}"
+                 width="498" id="jpcc5">
+        <af:outputText value="#{row.Email}" id="jpcot5"/>
+      </af:column>
+    </af:table>
+  </af:panelHeader>
+</jsp:root>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.51.39"
+          id="FODShoppingDashboardBean" Package="oracle.storefront.ui.bean"
+          BeanClass="oracle.storefront.ui.bean.FODShoppingDashboardBean"
+          isJavaBased="true">
+  <MethodAccessor IsCollection="false" Type="void" id="refreshCategory"
+                  ReturnNodeName="Return">
+    <ParameterInfo id="category"
+                   Type="oracle.storefront.ui.bean.FODCategoryBean"
+                   isStructured="true"/>
+  </MethodAccessor>
+  <ConstructorMethod IsCollection="true"
+                     Type="oracle.storefront.ui.bean.FODShoppingDashboardBean"
+                     BeanClass="oracle.storefront.ui.bean.FODShoppingDashboardBean"
+                     id="FODShoppingDashboardBean"/>
+</JavaBean>

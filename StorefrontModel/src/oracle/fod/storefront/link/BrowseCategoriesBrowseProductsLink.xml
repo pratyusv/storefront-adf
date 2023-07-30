@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BrowseCategoriesBrowseProductsLink"
+  Version="11.1.1.51.15"
+  EntityAssociation="oracle.fod.storefront.assoc.ProductCategoriesProductsAssoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="BrowseCategory"
+    Cardinality="1"
+    Owner="oracle.fod.storefront.uiview.BrowseCategoryVO"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="BrowseCategory"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.uiview.BrowseCategoryVO.CategoryId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="BrowseProduct"
+    Cardinality="-1"
+    Owner="oracle.fod.storefront.uiview.BrowseProductVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="BrowseProduct"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.uiview.BrowseProductVO.CategoryId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

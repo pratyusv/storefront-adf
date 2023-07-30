@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="CheckoutConfirmPageDef"
+                Package="oracle.storefront.ui.pages">
+  <parameters/>
+  <executables>
+    <iterator Binds="PaymentOption1" RangeSize="25"
+              DataControl="FODCheckoutAMDataControl"
+              id="PaymentOption1Iterator"/>
+    <iterator Binds="ShippingAddress" RangeSize="25"
+              DataControl="FODCheckoutAMDataControl"
+              id="ShippingAddressIterator"/>
+    <iterator Binds="BillingAddress" RangeSize="25"
+              DataControl="FODCheckoutAMDataControl"
+              id="BillingAddressIterator"/>
+    <iterator Binds="ShoppingCartItem1" RangeSize="25"
+              DataControl="FODCheckoutAMDataControl"
+              id="ShoppingCartItem1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="PaymentOption1Iterator" id="Meaning">
+      <AttrNames>
+        <Item Value="Meaning"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentOption1Iterator" id="Meaning1">
+      <AttrNames>
+        <Item Value="Meaning1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentOption1Iterator" id="AccountNumber">
+      <AttrNames>
+        <Item Value="AccountNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentOption1Iterator" id="ExpireDate">
+      <AttrNames>
+        <Item Value="ExpireDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentOption1Iterator" id="CheckDigits">
+      <AttrNames>
+        <Item Value="CheckDigits"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentOption1Iterator"
+                     id="RoutingIdentifier">
+      <AttrNames>
+        <Item Value="RoutingIdentifier"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="PaymentOption1Iterator" id="InstitutionName">
+      <AttrNames>
+        <Item Value="InstitutionName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShippingAddressIterator" id="Address1">
+      <AttrNames>
+        <Item Value="Address1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShippingAddressIterator" id="Address2">
+      <AttrNames>
+        <Item Value="Address2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShippingAddressIterator" id="City">
+      <AttrNames>
+        <Item Value="City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShippingAddressIterator" id="PostalCode">
+      <AttrNames>
+        <Item Value="PostalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShippingAddressIterator" id="StateProvince">
+      <AttrNames>
+        <Item Value="StateProvince"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShippingAddressIterator" id="CountryId">
+      <AttrNames>
+        <Item Value="CountryId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillingAddressIterator" id="Address11">
+      <AttrNames>
+        <Item Value="Address1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillingAddressIterator" id="Address21">
+      <AttrNames>
+        <Item Value="Address2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillingAddressIterator" id="City1">
+      <AttrNames>
+        <Item Value="City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillingAddressIterator" id="StateProvince1">
+      <AttrNames>
+        <Item Value="StateProvince"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillingAddressIterator" id="CountryId1">
+      <AttrNames>
+        <Item Value="CountryId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BillingAddressIterator" id="PostalCode1">
+      <AttrNames>
+        <Item Value="PostalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ShoppingCartItem1Iterator" id="ShoppingCartItem1">
+      <nodeDefinition DefName="oracle.fod.storefront.uiview.ShoppingCartItemVO"
+                      Name="ShoppingCartItem10">
+        <AttrNames>
+          <Item Value="ProductName"/>
+          <Item Value="Quantity"/>
+          <Item Value="UnitPrice"/>
+          <Item Value="LineTotal"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="PaymentOption1Iterator"
+                     id="PaymentTypeCodeValue">
+      <AttrNames>
+        <Item Value="PaymentTypeCode"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

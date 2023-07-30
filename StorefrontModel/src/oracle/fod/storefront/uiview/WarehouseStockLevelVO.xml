@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="WarehouseStockLevelVO"
+  Version="11.1.1.51.15"
+  FromList="WAREHOUSE_STOCK_LEVELS WarehouseStockLevelEO, WAREHOUSES WarehouseEO"
+  Where="WarehouseStockLevelEO.WAREHOUSE_ID = WarehouseEO.WAREHOUSE_ID"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="WarehouseStockLevelEO"
+    Entity="oracle.fod.storefront.entity.WarehouseStockLevelEO"
+    JoinType="INNER JOIN"/>
+  <EntityUsage
+    Name="WarehouseEO"
+    Entity="oracle.fod.storefront.entity.WarehouseEO"
+    Association="oracle.fod.storefront.assoc.WarehouseStockLevelsFkAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.WarehouseStockLevelsFkAssoc.Warehouse"
+    SourceUsage="oracle.fod.storefront.uiview.WarehouseStockLevelVO.WarehouseStockLevelEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item
+          Value="oracle.fod.storefront.entity.WarehouseStockLevelEO.WarehouseId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="oracle.fod.storefront.entity.WarehouseEO.WarehouseId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="WarehouseStockLevelEO"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="CreationDate"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="WarehouseStockLevelEO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="LastUpdateDate"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdateDate"
+    EntityUsage="WarehouseStockLevelEO"
+    AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="WarehouseStockLevelEO"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="ObjectVersionId"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ObjectVersionId"
+    EntityUsage="WarehouseStockLevelEO"
+    AliasName="OBJECT_VERSION_ID"/>
+  <ViewAttribute
+    Name="ProductId"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProductId"
+    EntityUsage="WarehouseStockLevelEO"
+    AliasName="PRODUCT_ID"/>
+  <ViewAttribute
+    Name="QuantityOnHand"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="QuantityOnHand"
+    EntityUsage="WarehouseStockLevelEO"
+    AliasName="QUANTITY_ON_HAND"/>
+  <ViewAttribute
+    Name="WarehouseId"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="WarehouseId"
+    EntityUsage="WarehouseStockLevelEO"
+    AliasName="WAREHOUSE_ID"/>
+  <ViewAttribute
+    Name="WarehouseId1"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="WarehouseId"
+    EntityUsage="WarehouseEO"
+    AliasName="WAREHOUSE_ID1"/>
+  <ViewAttribute
+    Name="WarehouseName"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="WarehouseName"
+    EntityUsage="WarehouseEO"
+    AliasName="WAREHOUSE_NAME"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="ProductId"/>
+    <Item Value="WarehouseId"/>
+  </AttrArray>
+</ViewObject>

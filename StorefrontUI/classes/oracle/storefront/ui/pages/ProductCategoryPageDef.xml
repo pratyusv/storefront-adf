@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="ProductCategoryPageDef"
+                Package="oracle.storefront.ui.pages">
+  <parameters/>
+  <executables>
+    <iterator Binds="RootCategory1" RangeSize="25"
+              DataControl="FODCategoryAMDataControl"
+              id="RootCategory1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="RootCategory1Iterator" id="RootCategory1">
+      <nodeDefinition DefName="oracle.fod.storefront.uiview.RootCategoryVO"
+                      Name="RootCategory10">
+        <AttrNames>
+          <Item Value="CategoryName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="SubCategory"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="oracle.fod.storefront.uiview.BrowseSubCategoryVO"
+                      Name="RootCategory11">
+        <AttrNames>
+          <Item Value="CategoryName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="onNodeClicked" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="onNodeClicked"
+                  IsViewObjectMethod="false" DataControl="FODCategoryBean"
+                  InstanceName="FODCategoryBean.dataProvider"
+                  ReturnName="FODCategoryBean.methodResults.onNodeClicked_FODCategoryBean_dataProvider_onNodeClicked_result">
+      <events xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+        <event name="FODSelectCategory"/>
+      </events>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AddressEO"
+  Version="11.1.1.51.29"
+  DBObjectType="table"
+  DBObjectName="ADDRESSES"
+  AliasName="AddressEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="oracle.fod.storefront.entity.AddressEOImpl">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_superClass"
+      Value="oracle.fod.storefront.entity.BaseEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="CountryVVO1"
+    ViewObjectName="oracle.fod.storefront.view.CountryVVO"/>
+  <Attribute
+    Name="AddressId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="ADDRESS_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ADDRESSES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Address1"
+    IsNotNull="true"
+    Precision="40"
+    ColumnName="ADDRESS1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ADDRESSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ADDRESS_LINE_1"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Address2"
+    Precision="40"
+    ColumnName="ADDRESS2"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ADDRESSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ADDRESS_LINE_2"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="City"
+    IsNotNull="true"
+    Precision="40"
+    ColumnName="CITY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ADDRESSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PostalCode"
+    Precision="12"
+    ColumnName="POSTAL_CODE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ADDRESSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="POSTAL_CODE"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="StateProvince"
+    IsNotNull="true"
+    Precision="40"
+    ColumnName="STATE_PROVINCE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ADDRESSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="STATE_PROVINCE"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CountryId"
+    IsNotNull="true"
+    Precision="2"
+    ColumnName="COUNTRY_ID"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    SQLType="CHAR"
+    TableName="ADDRESSES"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="COUNTRY_ID"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Longitude"
+    ColumnName="LONGITUDE"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ADDRESSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Latitude"
+    ColumnName="LATITUDE"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ADDRESSES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="CREATED_BY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ADDRESSES"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    ColumnName="CREATION_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="ADDRESSES"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="LAST_UPDATED_BY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ADDRESSES"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    ColumnName="LAST_UPDATE_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="ADDRESSES"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ObjectVersionId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="OBJECT_VERSION_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ADDRESSES"
+    HistoryColumn="VersionHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="AddressUsage"
+    Association="oracle.fod.storefront.assoc.AddressUsagesAddressesFkAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.AddressUsagesAddressesFkAssoc.AddressUsage"
+    AssociationOtherEnd="oracle.fod.storefront.assoc.AddressUsagesAddressesFkAssoc.Address"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Warehouse"
+    Association="oracle.fod.storefront.assoc.WarehousesAddressesFkAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.WarehousesAddressesFkAssoc.Warehouse"
+    AssociationOtherEnd="oracle.fod.storefront.assoc.WarehousesAddressesFkAssoc.Address"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Order"
+    Association="oracle.fod.storefront.assoc.OrdersShippingAddressesAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.OrdersShippingAddressesAssoc.Order"
+    AssociationOtherEnd="oracle.fod.storefront.assoc.OrdersShippingAddressesAssoc.Address"
+    Type="oracle.fod.storefront.entity.OrderEOImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Country"
+    Association="oracle.fod.storefront.assoc.AddressesCountryCodesAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.AddressesCountryCodesAssoc.Country"
+    AssociationOtherEnd="oracle.fod.storefront.assoc.AddressesCountryCodesAssoc.Address"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="AddressesPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ADDRESSES_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.AddressEO.AddressId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012509">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012509"/>
+      <Attr Name="_checkCondition" Value='"ADDRESS_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.AddressEO.AddressId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012510">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012510"/>
+      <Attr Name="_checkCondition" Value='"ADDRESS1" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.AddressEO.Address1"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012511">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012511"/>
+      <Attr Name="_checkCondition" Value='"CITY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.AddressEO.City"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012512">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012512"/>
+      <Attr Name="_checkCondition" Value='"STATE_PROVINCE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.AddressEO.StateProvince"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012513">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012513"/>
+      <Attr Name="_checkCondition" Value='"COUNTRY_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.AddressEO.CountryId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012514">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012514"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.AddressEO.CreatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012515">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012515"/>
+      <Attr Name="_checkCondition" Value='"CREATION_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.AddressEO.CreationDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012516">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012516"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.AddressEO.LastUpdatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012517">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012517"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.AddressEO.LastUpdateDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012518">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012518"/>
+      <Attr Name="_checkCondition" Value='"OBJECT_VERSION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.AddressEO.ObjectVersionId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="oracle.fod.storefront.StorefrontModelBundle"/>
+  </ResourceBundle>
+</Entity>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FODCategoryAM"
+  Version="11.1.1.51.15"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="RootCategory1"
+    ViewObjectName="oracle.fod.storefront.uiview.RootCategoryVO"/>
+  <ViewUsage
+    Name="SubCategory1"
+    ViewObjectName="oracle.fod.storefront.uiview.BrowseSubCategoryVO"/>
+  <ViewLinkUsage
+    Name="RootCategoriesSubCategoriesLink1"
+    Version="11.1.1.51.15"
+    ViewLinkObjectName="oracle.fod.storefront.link.RootCategoriesSubCategoriesLink"
+    SrcViewUsageName="oracle.fod.storefront.module.FODCategoryAM.RootCategory1"
+    DstViewUsageName="oracle.fod.storefront.module.FODCategoryAM.SubCategory1"
+    Reversed="false"/>
+</AppModule>

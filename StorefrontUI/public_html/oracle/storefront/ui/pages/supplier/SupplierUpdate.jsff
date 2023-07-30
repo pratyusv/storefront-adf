@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="storefrontuiBundle"
+         value="#{adfBundle['oracle.storefront.ui.StorefrontUIBundle']}"/>
+  <af:panelHeader text="#{pageFlowScope.SupplierAction == 'New' ? storefrontuiBundle.NEW_SUPPLIER_TITLE : storefrontuiBundle.UPDATE_SUPPLIER_TITLE}"
+                  inlineStyle="width:500px;" id="onkph1">
+    <f:facet name="context"/>
+    <f:facet name="menuBar"/>
+    <f:facet name="toolbar">
+      <af:group id="onkg1">
+        <af:toolbar id="onkt1">
+          <af:commandButton text="#{storefrontuiBundle.CANCEL}"
+                            action="cancel" immediate="true" id="onkcb1"/>
+          <af:commandButton text="#{storefrontuiBundle.SAVE}" action="save"
+                            id="onkcb2"/>
+        </af:toolbar>
+      </af:group>
+    </f:facet>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelFormLayout 
+                        maxColumns="1" id="onkpfl1">
+      <af:inputText value="#{bindings.SupplierName.inputValue}"
+                    label="#{bindings.SupplierName.hints.label}"
+                    required="#{bindings.SupplierName.hints.mandatory}"
+                    columns="#{bindings.SupplierName.hints.displayWidth}"
+                    maximumLength="#{bindings.SupplierName.hints.precision}"
+                    shortDesc="#{bindings.SupplierName.hints.tooltip}"
+                    id="onkit1">
+        <f:validator binding="#{bindings.SupplierName.validator}"/>
+      </af:inputText>
+      <af:selectOneChoice value="#{bindings.SupplierStatus.inputValue}"
+                          label="#{bindings.SupplierStatus.label}"
+                          required="#{bindings.SupplierStatus.hints.mandatory}"
+                          shortDesc="#{bindings.SupplierStatus.hints.tooltip}"
+                          id="onksoc1">
+        <f:selectItems value="#{bindings.SupplierStatus.items}" id="onksi1"/>
+      </af:selectOneChoice>
+      <af:inputText value="#{bindings.PhoneNumber.inputValue}"
+                    label="#{bindings.PhoneNumber.hints.label}"
+                    required="#{bindings.PhoneNumber.hints.mandatory}"
+                    columns="#{bindings.PhoneNumber.hints.displayWidth}"
+                    maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                    shortDesc="#{bindings.PhoneNumber.hints.tooltip}"
+                    id="onkit2">
+        <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+      </af:inputText>
+      <af:inputText value="#{bindings.Email.inputValue}"
+                    label="#{bindings.Email.hints.label}"
+                    required="#{bindings.Email.hints.mandatory}"
+                    columns="#{bindings.Email.hints.displayWidth}"
+                    maximumLength="#{bindings.Email.hints.precision}"
+                    shortDesc="#{bindings.Email.hints.tooltip}" id="onkit3">
+        <f:validator binding="#{bindings.Email.validator}"/>
+      </af:inputText>
+    </af:panelFormLayout>
+  </af:panelHeader>
+</jsp:root>

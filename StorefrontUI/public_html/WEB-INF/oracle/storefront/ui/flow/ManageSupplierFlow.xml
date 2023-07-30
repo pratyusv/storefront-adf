@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ManageSupplierFlow">
+    <default-activity>ChooseAction</default-activity>
+    <transaction>
+      <new-transaction/>
+    </transaction>
+    <input-parameter-definition>
+      <name>SupplierAction</name>
+      <value>#{pageFlowScope.SupplierAction}</value>
+      <required/>
+    </input-parameter-definition>
+    <view id="SupplierUpdate">
+      <page>/oracle/storefront/ui/pages/supplier/SupplierUpdate.jsff</page>
+    </view>
+    <task-flow-return id="Save">
+      <outcome>
+        <name>done</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="Cancel">
+      <outcome>
+        <name>done</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>done</fixed-outcome>
+      </outcome>
+    </method-call>
+    <router id="ChooseAction">
+      <case>
+        <expression>#{pageFlowScope.SupplierAction == 'New'}</expression>
+        <outcome>new</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.SupplierAction == 'Update'}</expression>
+        <outcome>update</outcome>
+      </case>
+      <default-outcome>new</default-outcome>
+    </router>
+    <control-flow-rule>
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case>
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>Cancel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule>
+      <from-activity-id>SupplierUpdate</from-activity-id>
+      <control-flow-case>
+        <from-outcome>save</from-outcome>
+        <to-activity-id>Save</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule>
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case>
+        <from-outcome>done</from-outcome>
+        <to-activity-id>SupplierUpdate</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule>
+      <from-activity-id>ChooseAction</from-activity-id>
+      <control-flow-case>
+        <from-outcome>new</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case>
+        <from-outcome>update</from-outcome>
+        <to-activity-id>SupplierUpdate</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

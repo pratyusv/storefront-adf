@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.51.15" id="ProductsPageDef"
+                Package="oracle.storefront.ui.pages">
+  <parameters/>
+  <executables>
+    <iterator Binds="BrowseCategory1" RangeSize="25"
+              DataControl="FODProductAMDataControl"
+              id="BrowseCategory1Iterator"/>
+    <iterator Binds="BrowseSubCategory1" RangeSize="25"
+              DataControl="FODProductAMDataControl"
+              id="BrowseSubCategory1Iterator"/>
+    <iterator Binds="BrowseProduct1" RangeSize="25"
+              DataControl="FODProductAMDataControl"
+              id="BrowseProduct1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="BrowseCategory1Iterator" id="BrowseCategory1">
+      <nodeDefinition DefName="oracle.fod.storefront.uiview.BrowseCategoryVO">
+        <AttrNames>
+          <Item Value="CategoryName"/>
+          <Item Value="CategoryDescription"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="BrowseSubCategory1Iterator" id="BrowseSubCategory1">
+      <nodeDefinition DefName="oracle.fod.storefront.uiview.BrowseSubCategoryVO">
+        <AttrNames>
+          <Item Value="CategoryName"/>
+          <Item Value="CategoryDescription"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="BrowseProduct1Iterator" id="BrowseProduct1">
+      <nodeDefinition DefName="oracle.fod.storefront.uiview.BrowseProductVO">
+        <AttrNames>
+          <Item Value="ProductName"/>
+          <Item Value="Description"/>
+          <Item Value="ListPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

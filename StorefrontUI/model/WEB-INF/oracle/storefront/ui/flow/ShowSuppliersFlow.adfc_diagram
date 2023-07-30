@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="status">ok</property>
+      <property
+         name="activityId">BrowseSuppliers</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p align="left" style="font-family:Tahoma;font-size:11pt">view - BrowseSuppliers&lt;/p>&lt;/html></property>
+      <property
+         name="binding">data</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="rawDescription">view - BrowseSuppliers</property>
+      <property
+         name="y">118.0</property>
+      <property
+         name="x">175.0</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="realized">true</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="status">warning</property>
+      <property
+         name="activityId">ManageSupplierFlow</property>
+      <property
+         name="statusDescription">EL token ''SupplierAction'' is unknown</property>
+      <property
+         name="runAsDialog">false</property>
+      <property
+         name="description">&lt;html>&lt;p align="left" style="font-family:Tahoma;font-size:11pt">task-flow-call - ManageSupplierFlow&lt;/p>&lt;/html></property>
+      <property
+         name="rawDescription">task-flow-call - ManageSupplierFlow</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">119.5</property>
+      <property
+         name="x">399.36426</property>
+      <property
+         name="realized">true</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">update</property>
+      <property
+         name="sdm:polyPoints">R46,216.03688,114.5,358.36426,116.0,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="TaskFlowCall3"
+      to="View2">
+      <property
+         name="fromOutcome">done</property>
+      <property
+         name="sdm:polyPoints">L54,358.32736,123.0,216.0,121.5,R54</property>
+   </ControlFlowCase>
+</SDM>

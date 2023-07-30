@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="ShoppingCartPageDef"
+                Package="oracle.storefront.ui.pages">
+  <parameters/>
+  <executables>
+    <invokeAction Binds="init" id="invokeInit" Refresh="ifNeeded"/>
+    <iterator Binds="ShoppingCartItem1" RangeSize="25"
+              DataControl="FODShoppingCartAMDataControl"
+              id="ShoppingCartItem1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ShoppingCartItem1Iterator" id="ShoppingCartItem1">
+      <nodeDefinition DefName="oracle.fod.storefront.uiview.ShoppingCartItemVO"
+                      Name="ShoppingCartItem10">
+        <AttrNames>
+          <Item Value="ProductName"/>
+          <Item Value="ListPrice"/>
+          <Item Value="Quantity"/>
+          <Item Value="LineTotal"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="init"
+                  InstanceName="FODShoppingCartAMDataControl.dataProvider"
+                  DataControl="FODShoppingCartAMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="init" IsViewObjectMethod="false"
+                  ReturnName="FODShoppingCartAMDataControl.methodResults.init_FODShoppingCartAMDataControl_dataProvider_init_result"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="FODShoppingCartAMDataControl"/>
+    <action IterBinding="ShoppingCartItem1Iterator" id="Delete"
+            InstanceName="FODShoppingCartAMDataControl.ShoppingCart1.ShoppingCartItem1"
+            DataControl="FODShoppingCartAMDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="ShoppingCartItem1Iterator" id="ProductName">
+      <AttrNames>
+        <Item Value="ProductName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShoppingCartItem1Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShoppingCartItem1Iterator"
+                     id="AdditionalInfo">
+      <AttrNames>
+        <Item Value="AdditionalInfo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ShoppingCartItem1Iterator" id="ListPrice">
+      <AttrNames>
+        <Item Value="ListPrice"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

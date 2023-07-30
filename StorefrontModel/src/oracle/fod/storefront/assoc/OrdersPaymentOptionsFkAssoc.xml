@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OrdersPaymentOptionsFkAssoc"
+  Version="11.1.1.51.15">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Order"
+    Cardinality="1"
+    Source="true"
+    Owner="oracle.fod.storefront.entity.OrderEO"
+    LockLevel="NONE">
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.PaymentOptionId"/>
+    </AttrArray>
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Order"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="PaymentOption"
+    Cardinality="-1"
+    Owner="oracle.fod.storefront.entity.PaymentOptionEO">
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.fod.storefront.entity.PaymentOptionEO.PaymentOptionId"/>
+    </AttrArray>
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="PaymentOption"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+  </AssociationEnd>
+</Association>

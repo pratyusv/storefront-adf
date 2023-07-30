@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View12">
+      <property
+         name="status">ok</property>
+      <property
+         name="activityId">FODShoppingDashboard</property>
+      <property
+         name="id">View12</property>
+      <property
+         name="description">&lt;html>&lt;p align="left" style="font-family:Tahoma;font-size:11pt">view - FODShoppingDashboard&lt;/p>&lt;/html></property>
+      <property
+         name="binding">data</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="rawDescription">view - FODShoppingDashboard</property>
+      <property
+         name="y">86.0</property>
+      <property
+         name="x">-85.0</property>
+      <property
+         name="realized">true</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="status">ok</property>
+      <property
+         name="activityId">Start</property>
+      <property
+         name="description">&lt;html>&lt;p align="left" style="font-family:Tahoma;font-size:11pt">view - Start&lt;/p>&lt;/html></property>
+      <property
+         name="rawDescription">view - Start</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">-52.5</property>
+      <property
+         name="realized">true</property>
+      <property
+         name="x">-85.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View3"
+      to="View12">
+      <property
+         name="fromOutcome">start</property>
+      <property
+         name="sdm:polyPoints">B50,-85.5,1.5,-85.0,32.0,T50</property>
+   </ControlFlowCase>
+</SDM>

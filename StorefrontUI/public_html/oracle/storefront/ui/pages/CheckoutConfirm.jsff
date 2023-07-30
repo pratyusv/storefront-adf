@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="storefrontuiBundle"
+         value="#{adfBundle['oracle.storefront.ui.StorefrontUIBundle']}"/>
+  <af:pageTemplate viewId="/oracle/storefront/ui/pages/templates/CheckoutPageTemplate.jspx"
+                   id="oqlpt1">
+  <f:facet name="content">
+      <af:panelGroupLayout layout="scroll" id="oqlpgl1">
+        <af:panelHeader text="#{storefrontuiBundle.PAYMENT_OPTIONS}" id="oqlph1"
+                        styleClass="AFStretchWidth">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:panelFormLayout id="oqlpfl1">
+            <af:panelLabelAndMessage label="#{bindings.Meaning.hints.label}"
+                                     id="oqlplam1">
+              <af:outputText value="#{ bindings.Meaning.inputValue}"
+                             id="oqlot1"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.Meaning1.hints.label}"
+                                     visible="#{bindings.PaymentTypeCodeValue.inputValue=='CC'}"
+                                     id="oqlplam2">
+              <af:outputText value="#{bindings.Meaning1.inputValue}"
+                             id="oqlot2"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.AccountNumber.hints.label}"
+                                     id="oqlplam3">
+              <af:outputText value="#{bindings.AccountNumber.inputValue}"
+                             id="oqlot3">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.AccountNumber.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.ExpireDate.hints.label}"
+                                     visible="#{bindings.PaymentTypeCodeValue.inputValue=='CC'}"
+                                     id="oqlplam4">
+              <af:outputText value="#{bindings.ExpireDate.inputValue}"
+                             id="oqlot4">
+                <af:convertDateTime pattern="#{bindings.ExpireDate.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.CheckDigits.hints.label}"
+                                     visible="#{bindings.PaymentTypeCodeValue.inputValue=='CC'}"
+                                     id="oqlplam5">
+              <af:outputText value="#{bindings.CheckDigits.inputValue}"
+                             id="oqlot5">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.CheckDigits.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.RoutingIdentifier.hints.label}"
+                                     visible="#{bindings.PaymentTypeCodeValue.inputValue=='DD'}"
+                                     id="oqlplam6">
+              <af:outputText value="#{bindings.RoutingIdentifier.inputValue}"
+                             id="oqlot6"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.InstitutionName.hints.label}"
+                                     visible="#{bindings.PaymentTypeCodeValue.inputValue=='DD'}"
+                                     id="oqlplam7">
+              <af:outputText value="#{bindings.InstitutionName.inputValue}"
+                             id="oqlot7"/>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:panelHeader>
+        <af:panelGroupLayout layout="horizontal"
+                             id="oqlpgl2" styleClass="AFStretchWidth">
+          <af:panelHeader text="#{storefrontuiBundle.SHIPPING_ADDRESS}" id="oqlph2"
+                          styleClass="AFStretchWidth">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelFormLayout id="oqlpfl2">
+              <af:panelLabelAndMessage label="#{bindings.Address1.hints.label}"
+                                       id="oqlplam8">
+                <af:outputText value="#{bindings.Address1.inputValue}"
+                               id="oqlot8"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.Address2.hints.label}"
+                                       id="oqlplam9">
+                <af:outputText value="#{bindings.Address2.inputValue}"
+                               id="oqlot9"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.City.hints.label}"
+                                       id="oqlplam10">
+                <af:outputText value="#{bindings.City.inputValue}"
+                               id="oqlot10"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.StateProvince.hints.label}"
+                                       id="oqlplam11">
+                <af:outputText value="#{bindings.StateProvince.inputValue}"
+                               id="oqlot11"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.PostalCode.hints.label}"
+                                       id="oqlplam12">
+                <af:outputText value="#{bindings.PostalCode.inputValue}"
+                               id="oqlot12"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.CountryId.hints.label}"
+                                       id="oqlplam13">
+                <af:outputText value="#{bindings.CountryId.inputValue}"
+                               id="oqlot13"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelHeader>
+          <af:panelHeader text="#{storefrontuiBundle.BILLING_ADDRESS}" id="oqlph3"
+                          styleClass="AFStretchWidth">
+            <f:facet name="context"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelFormLayout id="oqlpfl3">
+              <af:panelLabelAndMessage label="#{bindings.Address11.hints.label}"
+                                       id="oqlplam14">
+                <af:outputText value="#{bindings.Address11.inputValue}"
+                               id="oqlot14"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.Address21.hints.label}"
+                                       id="oqlplam15">
+                <af:outputText value="#{bindings.Address21.inputValue}"
+                               id="oqlot15"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.City1.hints.label}"
+                                       id="oqlplam16">
+                <af:outputText value="#{bindings.City1.inputValue}"
+                               id="oqlot16"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.StateProvince1.hints.label}"
+                                       id="oqlplam17">
+                <af:outputText value="#{bindings.StateProvince1.inputValue}"
+                               id="oqlot17"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.PostalCode1.hints.label}"
+                                       id="oqlplam18">
+                <af:outputText value="#{bindings.PostalCode1.inputValue}"
+                               id="oqlot18"/>
+              </af:panelLabelAndMessage>
+              <af:panelLabelAndMessage label="#{bindings.CountryId1.hints.label}"
+                                       id="oqlplam19">
+                <af:outputText value="#{bindings.CountryId1.inputValue}"
+                               id="oqlot19"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelHeader>
+          <f:facet name="separator">
+            <af:spacer width="10" height="10" id="oqls1"/>
+          </f:facet>
+        </af:panelGroupLayout>
+        <f:facet name="separator">
+          <af:spacer width="10" height="10" id="oqls2"/>
+        </f:facet>
+        <af:panelHeader text="#{storefrontuiBundle.ORDER_ITEMS}" id="oqlph4">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:table value="#{bindings.ShoppingCartItem1.collectionModel}"
+                    var="row" rows="#{bindings.ShoppingCartItem1.rangeSize}"
+                    emptyText="#{bindings.ShoppingCartItem1.viewable ? 'No rows yet.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.ShoppingCartItem1.rangeSize}"
+                    width="100%" columnStretching="last" id="oqlt1">
+            <af:column sortProperty="ProductName" sortable="true"
+                       headerText="#{bindings.ShoppingCartItem1.hints.ProductName.label}"
+                       id="oqlc1">
+              <af:outputText value="#{row.ProductName}" id="oqlot20"/>
+            </af:column>
+            <af:column sortProperty="Quantity" sortable="true"
+                       headerText="#{bindings.ShoppingCartItem1.hints.Quantity.label}"
+                       id="oqlc2">
+              <af:outputText value="#{row.Quantity}" id="oqlot21">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ShoppingCartItem1.hints.Quantity.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="UnitPrice" sortable="true"
+                       headerText="#{bindings.ShoppingCartItem1.hints.UnitPrice.label}"
+                       id="oqlc3">
+              <af:outputText value="#{row.UnitPrice}" id="oqlot22">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ShoppingCartItem1.hints.UnitPrice.format}"/>
+              </af:outputText>
+            </af:column>
+            <af:column sortProperty="LineTotal" sortable="true"
+                       headerText="#{bindings.ShoppingCartItem1.hints.LineTotal.label}"
+                       id="oqlc4">
+              <af:outputText value="#{row.LineTotal}" id="oqlot23">
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.ShoppingCartItem1.hints.LineTotal.format}"/>
+              </af:outputText>
+            </af:column>
+          </af:table>
+        </af:panelHeader>
+      </af:panelGroupLayout>
+    </f:facet>
+  <f:attribute name="title" value="#{storefrontuiBundle.CONFIRM}"/>
+</af:pageTemplate>
+</jsp:root>

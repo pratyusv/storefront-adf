@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ShoppingCartItemNew"
+  Version="11.1.1.51.29"
+  SelectList="OrderItemEO.LINE_ITEM_ID, 
+       OrderItemEO.ORDER_ID, 
+       OrderItemEO.PRODUCT_ID, 
+       OrderItemEO.QUANTITY, 
+       OrderItemEO.UNIT_PRICE, 
+       ProductEO.PRODUCT_ID AS PRODUCT_ID1, 
+       ProductEO.PRODUCT_NAME, 
+       ProductEO.DESCRIPTION, 
+       ProductEO.ADDITIONAL_INFO, 
+       ProductEO.LIST_PRICE, 
+       ProductCategoryEO.CATEGORY_ID, 
+       ProductCategoryEO.CATEGORY_NAME"
+  FromList="ORDER_ITEMS OrderItemEO, PRODUCTS ProductEO, PRODUCT_CATEGORIES ProductCategoryEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="(OrderItemEO.PRODUCT_ID = ProductEO.PRODUCT_ID) AND (ProductEO.CATEGORY_ID = ProductCategoryEO.CATEGORY_ID)">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="OrderItemEO"
+    Entity="oracle.fod.storefront.entity.OrderItemEO"/>
+  <EntityUsage
+    Name="ProductEO"
+    Entity="oracle.fod.storefront.entity.ProductEO"
+    Association="oracle.fod.storefront.assoc.OrderItemsProductsAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.OrderItemsProductsAssoc.Product"
+    SourceUsage="oracle.fod.storefront.uiview.ShoppingCartItemNew.OrderItemEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="oracle.fod.storefront.entity.OrderItemEO.ProductId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="oracle.fod.storefront.entity.ProductEO.ProductId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="ProductCategoryEO"
+    Entity="oracle.fod.storefront.entity.ProductCategoryEO"
+    Association="oracle.fod.storefront.assoc.ProductCategoriesProductsAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.ProductCategoriesProductsAssoc.ProductCategory"
+    SourceUsage="oracle.fod.storefront.uiview.ShoppingCartItemNew.ProductEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="oracle.fod.storefront.entity.ProductEO.CategoryId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item
+          Value="oracle.fod.storefront.entity.ProductCategoryEO.CategoryId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="LineItemId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LineItemId"
+    EntityUsage="OrderItemEO"
+    AliasName="LINE_ITEM_ID"/>
+  <ViewAttribute
+    Name="OrderId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="OrderId"
+    EntityUsage="OrderItemEO"
+    AliasName="ORDER_ID"/>
+  <ViewAttribute
+    Name="ProductId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProductId"
+    EntityUsage="OrderItemEO"
+    AliasName="PRODUCT_ID"/>
+  <ViewAttribute
+    Name="Quantity"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Quantity"
+    EntityUsage="OrderItemEO"
+    AliasName="QUANTITY"/>
+  <ViewAttribute
+    Name="UnitPrice"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UnitPrice"
+    EntityUsage="OrderItemEO"
+    AliasName="UNIT_PRICE"/>
+  <ViewAttribute
+    Name="ProductId1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProductId"
+    EntityUsage="ProductEO"
+    AliasName="PRODUCT_ID1"/>
+  <ViewAttribute
+    Name="ProductName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProductName"
+    EntityUsage="ProductEO"
+    AliasName="PRODUCT_NAME"/>
+  <ViewAttribute
+    Name="Description"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="ProductEO"
+    AliasName="DESCRIPTION"/>
+  <ViewAttribute
+    Name="AdditionalInfo"
+    PrecisionRule="true"
+    EntityAttrName="AdditionalInfo"
+    EntityUsage="ProductEO"
+    AliasName="ADDITIONAL_INFO"/>
+  <ViewAttribute
+    Name="ListPrice"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ListPrice"
+    EntityUsage="ProductEO"
+    AliasName="LIST_PRICE"/>
+  <ViewAttribute
+    Name="CategoryId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CategoryId"
+    EntityUsage="ProductCategoryEO"
+    AliasName="CATEGORY_ID"/>
+  <ViewAttribute
+    Name="CategoryName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CategoryName"
+    EntityUsage="ProductCategoryEO"
+    AliasName="CATEGORY_NAME"/>
+  <ViewLinkAccessor
+    Name="Product"
+    ViewLink="oracle.fod.storefront.link.SCItemsNewProductsLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="LineItemId"/>
+    <Item Value="OrderId"/>
+  </AttrArray>
+</ViewObject>

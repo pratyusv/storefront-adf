@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="storefrontuiBundle"
+         value="#{adfBundle['oracle.storefront.ui.StorefrontUIBundle']}"/>
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <af:pageTemplateDef var="attrs">
+    <af:panelGroupLayout layout="scroll" id="pt_pgl1">
+      <af:train value="#{controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                id="pt_t1"/>
+      <af:panelHeader text="#{attrs.title}"
+                      id="pt_ph1" styleClass="AFStretchWidth">
+        <f:facet name="context"/>
+        <f:facet name="menuBar"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="pt_t2">
+            <af:commandButton text="#{storefrontuiBundle.CANCEL}"
+                              action="cancel" immediate="true" id="pt_cb1"/>
+            <af:trainButtonBar value="#{ controllerContext.currentViewPort.taskFlowContext.trainModel}"
+                               id="pt_tbb1"/>
+            <af:commandButton text="#{storefrontuiBundle.SUBMIT}"
+                              action="submit"
+                              disabled="#{controllerContext.currentViewPort.taskFlowContext.trainModel.next != null}"
+                              id="pt_cb2"/>
+          </af:toolbar>
+        </f:facet>
+        <f:facet name="legend"/>
+        <f:facet name="info"/>
+        <af:facetRef facetName="content"/>
+      </af:panelHeader>
+    </af:panelGroupLayout>
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>CheckoutPageTemplate</display-name>
+        <facet>
+          <facet-name>content</facet-name>
+        </facet>
+        <attribute>
+          <attribute-name>title</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <required>true</required>
+        </attribute>
+      </component>
+    </af:xmlContent>
+  </af:pageTemplateDef>
+</jsp:root>

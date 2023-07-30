@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.51.29" id="CheckoutShippingPageDef"
+                Package="oracle.storefront.ui.pages">
+  <parameters/>
+  <executables>
+    <invokeAction Binds="init" id="invokeInit" Refresh="ifNeeded"/>
+    <iterator Binds="ShippingAddress" RangeSize="25"
+              DataControl="FODCheckoutAMDataControl" id="Address1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Address1Iterator" id="Address1">
+      <AttrNames>
+        <Item Value="Address1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Address1Iterator" id="Address2">
+      <AttrNames>
+        <Item Value="Address2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Address1Iterator" id="City">
+      <AttrNames>
+        <Item Value="City"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Address1Iterator" id="StateProvince">
+      <AttrNames>
+        <Item Value="StateProvince"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Address1Iterator" id="PostalCode">
+      <AttrNames>
+        <Item Value="PostalCode"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="Address1Iterator" StaticList="false" Uses="LOV_CountryId"
+          id="CountryId" DTSupportsMRU="false"/>
+    <methodAction id="init" InstanceName="FODCheckoutAMDataControl.dataProvider"
+                  DataControl="FODCheckoutAMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="init" IsViewObjectMethod="false"
+                  ReturnName="FODCheckoutAMDataControl.methodResults.init_FODCheckoutAMDataControl_dataProvider_init_result"/>
+  </bindings>
+</pageDefinition>

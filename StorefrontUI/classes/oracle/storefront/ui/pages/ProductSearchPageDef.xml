@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="ProductSearchPageDef"
+                Package="oracle.storefront.ui.pages">
+  <parameters/>
+  <executables>
+    <iterator Binds="BrowseProduct" RangeSize="25"
+              DataControl="FODProductAMDataControl" id="BrowseProductIterator"/>
+    <searchRegion Criteria="SearchByName"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="BrowseProductIterator" id="SearchByNameQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="BrowseProductIterator" id="BrowseProduct">
+      <nodeDefinition DefName="oracle.fod.storefront.uiview.BrowseProductVO"
+                      Name="BrowseProduct0">
+        <AttrNames>
+          <Item Value="ProductName"/>
+          <Item Value="CategoryName"/>
+          <Item Value="ListPrice"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="BrowseProductIterator" id="setCurrentRowWithKey"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDType="java.lang.String"
+                 NDValue="#{row.rowKeyStr}"/>
+    </action>
+  </bindings>
+</pageDefinition>

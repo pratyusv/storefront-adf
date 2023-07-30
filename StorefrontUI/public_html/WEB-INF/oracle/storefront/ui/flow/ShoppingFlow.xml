@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ShoppingFlow">
+    <default-activity>ProductCatalog</default-activity>
+    <input-parameter-definition>
+      <name>CategoryId</name>
+      <value>#{pageFlowScope.CategoryId}</value>
+    </input-parameter-definition>
+    <input-parameter-definition>
+      <name>CategoryName</name>
+      <value>#{pageFlowScope.CategoryName}</value>
+    </input-parameter-definition>
+    <input-parameter-definition>
+      <name>SubCategoryId</name>
+      <value>#{pageFlowScope.SubCategoryId}</value>
+    </input-parameter-definition>
+    <input-parameter-definition>
+      <name>SubCategoryName</name>
+      <value>#{pageFlowScope.SubCategoryName}</value>
+    </input-parameter-definition>
+    <view id="ProductCatalog">
+      <page>/oracle/storefront/ui/pages/ProductCatalog.jsff</page>
+    </view>
+    <view id="ProductSearch">
+      <page>/oracle/storefront/ui/pages/ProductSearch.jsff</page>
+    </view>
+    <view id="ProductDetails">
+      <page>/oracle/storefront/ui/pages/ProductDetails.jsff</page>
+    </view>
+    <task-flow-call id="CheckoutFlow">
+      <task-flow-reference>
+        <document>/WEB-INF/oracle/storefront/ui/flow/CheckoutFlow.xml</document>
+        <id>CheckoutFlow</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="AddShoppingCart">
+      <task-flow-reference>
+        <document>/WEB-INF/oracle/storefront/ui/flow/ShoppingCartFlow.xml</document>
+        <id>ShoppingCartFlow</id>
+      </task-flow-reference>
+      <input-parameter>
+        <name>Action</name>
+        <value>Add</value>
+      </input-parameter>
+      <input-parameter>
+        <name>ProductId</name>
+        <value>#{requestScope.ProductId}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="DisplayShoppingCart">
+      <task-flow-reference>
+        <document>/WEB-INF/oracle/storefront/ui/flow/ShoppingCartFlow.xml</document>
+        <id>ShoppingCartFlow</id>
+      </task-flow-reference>
+      <input-parameter>
+        <name>Action</name>
+        <value>Display</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule>
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case>
+        <from-outcome>search</from-outcome>
+        <to-activity-id>ProductSearch</to-activity-id>
+      </control-flow-case>
+      <control-flow-case>
+        <from-outcome>detail</from-outcome>
+        <to-activity-id>ProductDetails</to-activity-id>
+      </control-flow-case>
+      <control-flow-case>
+        <from-outcome>shop</from-outcome>
+        <to-activity-id>ProductCatalog</to-activity-id>
+      </control-flow-case>
+      <control-flow-case>
+        <from-outcome>checkout</from-outcome>
+        <to-activity-id>CheckoutFlow</to-activity-id>
+      </control-flow-case>
+      <control-flow-case>
+        <from-outcome>add</from-outcome>
+        <to-activity-id>AddShoppingCart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case>
+        <from-outcome>cart</from-outcome>
+        <to-activity-id>DisplayShoppingCart</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

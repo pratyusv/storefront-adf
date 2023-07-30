@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.51.29" id="ProductDetailsPageDef"
+                Package="oracle.storefront.ui.pages">
+  <parameters/>
+  <executables>
+    <iterator Binds="BrowseProduct" RangeSize="25"
+              DataControl="FODProductAMDataControl" id="BrowseProductIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="BrowseProductIterator" id="ProductName">
+      <AttrNames>
+        <Item Value="ProductName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BrowseProductIterator" id="CategoryName">
+      <AttrNames>
+        <Item Value="CategoryName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BrowseProductIterator" id="ListPrice">
+      <AttrNames>
+        <Item Value="ListPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BrowseProductIterator" id="ProductId">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

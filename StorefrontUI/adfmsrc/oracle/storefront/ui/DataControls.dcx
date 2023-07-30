@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration"
+                    version="11.1.1.51.39" id="DataControls"
+                    Package="oracle.storefront.ui">
+  <AdapterDataControl id="FODCategoryBean"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.bean.BeanDefinition"
+                      SupportsTransactions="false" SupportsSortCollection="true"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="oracle.storefront.ui.bean.FODCategoryBean"
+                      BeanClass="oracle.storefront.ui.bean.FODCategoryBean"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <CreatableTypes>
+      <TypeInfo FullName="oracle.storefront.ui.bean.FODCategoryBean"/>
+    </CreatableTypes>
+    <Source>
+      <bean-definition BeanClass="oracle.storefront.ui.bean.FODCategoryBean"
+                       xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="FODShoppingDashboardBean"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.bean.BeanDefinition"
+                      SupportsTransactions="false" SupportsSortCollection="true"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="oracle.storefront.ui.bean.FODShoppingDashboardBean"
+                      BeanClass="oracle.storefront.ui.bean.FODShoppingDashboardBean"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <CreatableTypes>
+      <TypeInfo FullName="oracle.storefront.ui.bean.FODCategoryBean"/>
+      <TypeInfo FullName="oracle.storefront.ui.bean.FODShoppingDashboardBean"/>
+    </CreatableTypes>
+    <Source>
+      <bean-definition BeanClass="oracle.storefront.ui.bean.FODShoppingDashboardBean"
+                       xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

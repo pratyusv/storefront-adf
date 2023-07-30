@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.51.15" id="DataBindings" SeparateXMLFiles="false"
+             Package="oracle.storefront.ui" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/oracle/storefront/ui/pages/CheckoutConfirm.jsff"
+          usageId="oracle_storefront_ui_CheckoutConfirmPageDef"/>
+    <page path="/oracle/storefront/ui/pages/CheckoutPayment.jsff"
+          usageId="oracle_storefront_ui_CheckoutPaymentPageDef"/>
+    <page path="/oracle/storefront/ui/pages/CheckoutShipping.jsff"
+          usageId="oracle_storefront_ui_CheckoutShippingPageDef"/>
+    <page path="/oracle/storefront/ui/pages/supplier/SupplierUpdate.jsff"
+          usageId="oracle_storefront_ui_SupplierUpdatePageDef"/>
+    <page path="/oracle/storefront/ui/pages/ShoppingCart.jsff"
+          usageId="oracle_storefront_ui_ShoppingCartPageDef"/>
+    <page path="/oracle/storefront/ui/pages/ProductCatalog.jsff"
+          usageId="oracle_storefront_ui_ProductCatalogPageDef"/>
+    <page path="/oracle/storefront/ui/pages/ProductDetails.jsff"
+          usageId="oracle_storefront_ui_ProductDetailsPageDef"/>
+    <page path="/oracle/storefront/ui/pages/ProductSearch.jsff"
+          usageId="oracle_storefront_ui_ProductSearchPageDef"/>
+    <page path="/oracle/storefront/ui/pages/BrowseSuppliers.jsff"
+          usageId="oracle_storefront_ui_BrowseSuppliersPageDef"/>
+    <page path="/oracle/storefront/ui/pages/ProductCategory.jsff"
+          usageId="oracle_storefront_ui_ProductCategoryPageDef"/>
+    <page path="/oracle/storefront/ui/pages/FODShoppingDashboard.jspx"
+          usageId="oracle_storefront_ui_FODShoppingDashboardPageDef"/>
+    <page path="/WEB-INF/oracle/storefront/ui/flow/ShoppingCartFlow.xml#ShoppingCartFlow@addItemToCart"
+          usageId="oracle_storefront_ui_ShoppingCartFlow_ShoppingCartFlow_addItemToCartPageDef"/>
+    <page path="/WEB-INF/oracle/storefront/ui/flow/ManageSupplierFlow.xml#ManageSupplierFlow@CreateInsert"
+          usageId="oracle_storefront_ui_ManageSupplierFlow_ManageSupplierFlow_CreateInsertPageDef"/>
+    <page path="/WEB-INF/oracle/storefront/ui/flow/ShoppingCartFlow.xml#ShoppingCartFlow@Commit"
+          usageId="oracle_storefront_ui_ShoppingCartFlow_ShoppingCartFlow_CommitPageDef"/>
+    <page path="/error.html" usageId="oracle_storefront_ui_errorPageDef"/>
+    <page path="/login.html" usageId="oracle_storefront_ui_loginPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="oracle_storefront_ui_ProductCatalogPageDef"
+          path="oracle.storefront.ui.pages.ProductCatalogPageDef"/>
+    <page id="oracle_storefront_ui_ShoppingCartPageDef"
+          path="oracle.storefront.ui.pages.ShoppingCartPageDef"/>
+    <page id="oracle_storefront_ui_ProductSearchPageDef"
+          path="oracle.storefront.ui.pages.ProductSearchPageDef"/>
+    <page id="oracle_storefront_ui_ProductDetailsPageDef"
+          path="oracle.storefront.ui.pages.ProductDetailsPageDef"/>
+    <page id="oracle_storefront_ui_BrowseSuppliersPageDef"
+          path="oracle.storefront.ui.pages.BrowseSuppliersPageDef"/>
+    <page id="oracle_storefront_ui_ProductCategoryPageDef"
+          path="oracle.storefront.ui.pages.ProductCategoryPageDef"/>
+    <page id="oracle_storefront_ui_SupplierUpdatePageDef"
+          path="oracle.storefront.ui.pages.supplier.SupplierUpdatePageDef"/>
+    <page id="oracle_storefront_ui_CheckoutShippingPageDef"
+          path="oracle.storefront.ui.pages.CheckoutShippingPageDef"/>
+    <page id="oracle_storefront_ui_CheckoutPaymentPageDef"
+          path="oracle.storefront.ui.pages.CheckoutPaymentPageDef"/>
+    <page id="oracle_storefront_ui_CheckoutConfirmPageDef"
+          path="oracle.storefront.ui.pages.CheckoutConfirmPageDef"/>
+    <page id="oracle_storefront_ui_FODShoppingDashboardPageDef"
+          path="oracle.storefront.ui.pages.FODShoppingDashboardPageDef"/>
+    <page id="oracle_storefront_ui_ShoppingCartFlow_ShoppingCartFlow_addItemToCartPageDef"
+          path="oracle.storefront.ui.flow.ShoppingCartFlow_ShoppingCartFlow_addItemToCartPageDef"/>
+    <page id="oracle_storefront_ui_ManageSupplierFlow_ManageSupplierFlow_CreateInsertPageDef"
+          path="oracle.storefront.ui.flow.ManageSupplierFlow_ManageSupplierFlow_CreateInsertPageDef"/>
+    <page id="oracle_storefront_ui_ShoppingCartFlow_ShoppingCartFlow_CommitPageDef"
+          path="oracle.storefront.ui.flow.ShoppingCartFlow_ShoppingCartFlow_CommitPageDef"/>
+    <page id="oracle_storefront_ui_errorPageDef"
+          path="oracle.storefront.ui.pageDefs.errorPageDef"/>
+    <page id="oracle_storefront_ui_loginPageDef"
+          path="oracle.storefront.ui.pageDefs.loginPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="FODShoppingDashboardBean"
+        path="oracle.storefront.ui.FODShoppingDashboardBean"/>
+    <dc id="FODCategoryBean" path="oracle.storefront.ui.FODCategoryBean"/>
+    <BC4JDataControl id="FODProductAMDataControl"
+                     Package="oracle.fod.storefront.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="FODProductAMWeb" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="FODShoppingCartAMDataControl"
+                     Package="oracle.fod.storefront.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="FODShoppingCartAMWeb" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="FODSupplierAMDataControl"
+                     Package="oracle.fod.storefront.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="FODSupplierAMWeb" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="FODCategoryAMDataControl"
+                     Package="oracle.fod.storefront.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="FODCategoryAMWeb" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="FODCheckoutAMDataControl"
+                     Package="oracle.fod.storefront.module"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="FODCheckoutAMWeb" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

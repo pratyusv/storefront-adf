@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProductCategoryEO"
+  Version="11.1.1.51.29"
+  DBObjectType="view"
+  DBObjectName="PRODUCT_CATEGORIES"
+  AliasName="ProductCategoryEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="CategoryName"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="CATEGORY_NAME"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="PRODUCT_CATEGORIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="CATEGORY_NAME"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CategoryDescription"
+    Precision="1000"
+    ColumnName="CATEGORY_DESCRIPTION"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="PRODUCT_CATEGORIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="CATEGORY_DESCRIPTION"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CategoryId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="CATEGORY_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="PRODUCT_CATEGORIES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ParentCategoryId"
+    Precision="15"
+    Scale="0"
+    ColumnName="PARENT_CATEGORY_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="PRODUCT_CATEGORIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CategoryLockedFlag"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="CATEGORY_LOCKED_FLAG"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="PRODUCT_CATEGORIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Product"
+    Association="oracle.fod.storefront.assoc.ProductCategoriesProductsAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.ProductCategoriesProductsAssoc.Product"
+    AssociationOtherEnd="oracle.fod.storefront.assoc.ProductCategoriesProductsAssoc.ProductCategory"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ProductCategory"
+    Association="oracle.fod.storefront.assoc.ProductCategoriesSubProductCategoriesAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.ProductCategoriesSubProductCategoriesAssoc.ProductCategory"
+    AssociationOtherEnd="oracle.fod.storefront.assoc.ProductCategoriesSubProductCategoriesAssoc.ParentCategoryIdProductCategory"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ParentCategoryIdProductCategory"
+    Association="oracle.fod.storefront.assoc.ProductCategoriesSubProductCategoriesAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.ProductCategoriesSubProductCategoriesAssoc.ParentCategoryIdProductCategory"
+    AssociationOtherEnd="oracle.fod.storefront.assoc.ProductCategoriesSubProductCategoriesAssoc.ProductCategory"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <ViewLinkAccessor
+    Name="BrowseCategory"
+    ViewLink="oracle.fod.storefront.link.BrowseCategoriesSubCategoriesLink"
+    ViewLinkEnd="oracle.fod.storefront.link.BrowseCategoriesSubCategoriesLink.BrowseCategory"
+    ViewLinkOtherEnd="oracle.fod.storefront.link.BrowseCategoriesSubCategoriesLink.SubCategory"
+    Type="oracle.jbo.server.ViewRowImpl"
+    IsUpdateable="false"/>
+  <Key
+    Name="ProductcategoryeoPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRODUCTCATEGORYEO_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.ProductCategoryEO.CategoryId"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="oracle.fod.storefront.StorefrontModelBundle"/>
+  </ResourceBundle>
+</Entity>

@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="storefrontuiBundle"
+         value="#{adfBundle['oracle.storefront.ui.StorefrontUIBundle']}"/>
+  <af:breadCrumbs id="iphbc1">
+    <af:commandNavigationItem text="#{storefrontuiBundle.STORE}" id="iphcni1">
+      <af:setActionListener from="#{null}" to="#{pageFlowScope.CategoryId}"/>
+      <af:setActionListener from="#{null}" to="#{pageFlowScope.CategoryName}"/>
+      <af:setActionListener from="#{null}" to="#{pageFlowScope.SubCategoryId}"/>
+      <af:setActionListener from="#{null}"
+                            to="#{pageFlowScope.SubCategoryName}"/>
+    </af:commandNavigationItem>
+    <af:commandNavigationItem text="#{bindings.param_CategoryName}"
+                              rendered="#{bindings.param_CategoryId != null}"
+                              id="iphcni2">
+      <af:setActionListener from="#{null}" to="#{pageFlowScope.SubCategoryId}"/>
+      <af:setActionListener from="#{null}"
+                            to="#{pageFlowScope.SubCategoryName}"/>
+    </af:commandNavigationItem>
+    <af:commandNavigationItem text="#{bindings.param_SubCategoryName}"
+                              rendered="#{bindings.param_CategoryId != null &amp;&amp; bindings.param_SubCategoryId != null}"
+                              id="iphcni3"/>
+  </af:breadCrumbs>
+  <af:panelGroupLayout layout="scroll" id="panelGroupLayout1">
+    <af:panelHeader text="#{bindings.param_CategoryId == null || bindings.param_SubCategoryId == null ? storefrontuiBundle.CATEGORIES : storefrontuiBundle.PRODUCTS}"
+                    id="panelHeader1" styleClass="AFStretchWidth">
+      <af:table id="masterDetail1" rows="#{bindings.BrowseCategory1.rangeSize}"
+                fetchSize="#{bindings.BrowseCategory1.rangeSize}"
+                emptyText="#{bindings.BrowseCategory1.viewable ? 'No rows yet.' : 'Access Denied.'}"
+                var="row" value="#{bindings.BrowseCategory1.collectionModel}" width="100%"
+                columnStretching="last"
+                rendered="#{bindings.param_CategoryId == null &amp;&amp; bindings.param_SubCategoryId == null}">
+        <af:column headerText="#{bindings.BrowseCategory1.hints.CategoryName.label}"
+                   sortProperty="CategoryName" sortable="false" id="column4">
+          <af:commandLink
+                          text="#{row.bindings.CategoryName.inputValue}"
+                          id="outputText4">
+            <af:setActionListener from="#{row.CategoryId}"
+                                  to="#{pageFlowScope.CategoryId}"/>
+            <af:setActionListener from="#{row.CategoryName}"
+                                  to="#{pageFlowScope.CategoryName}"/>
+          </af:commandLink>
+        </af:column>
+        <af:column headerText="#{bindings.BrowseCategory1.hints.CategoryDescription.label}"
+                   sortProperty="CategoryDescription" sortable="false"
+                   id="column1">
+          <af:outputText value="#{row.bindings.CategoryDescription.inputValue}"
+                         id="outputText1"/>
+        </af:column>
+      </af:table>
+      <af:table partialTriggers="::masterDetail1"
+                rows="#{bindings.BrowseSubCategory1.rangeSize}"
+                fetchSize="#{bindings.BrowseSubCategory1.rangeSize}"
+                emptyText="#{bindings.BrowseSubCategory1.viewable ? 'No rows yet.' : 'Access Denied.'}"
+                var="row" value="#{bindings.BrowseSubCategory1.collectionModel}"
+                width="100%" columnStretching="last" id="SubCategory"
+                rendered="#{bindings.param_CategoryId != null &amp;&amp; bindings.param_SubCategoryId == null}">
+        <af:column headerText="#{bindings.BrowseSubCategory1.hints.CategoryName.label}"
+                   sortProperty="CategoryName" sortable="false" id="column9">
+          <af:commandLink
+                          text="#{row.bindings.CategoryName.inputValue}"
+                          id="outputText9">
+            <af:setActionListener from="#{row.CategoryId}"
+                                  to="#{pageFlowScope.SubCategoryId}"/>
+            <af:setActionListener from="#{row.CategoryName}"
+                                  to="#{pageFlowScope.SubCategoryName}"/>
+          </af:commandLink>
+        </af:column>
+        <af:column headerText="#{bindings.BrowseSubCategory1.hints.CategoryDescription.label}"
+                   sortProperty="CategoryDescription" sortable="false"
+                   id="column6">
+          <af:outputText value="#{row.bindings.CategoryDescription.inputValue}"
+                         id="outputText6"/>
+        </af:column>
+      </af:table>
+      <af:table value="#{bindings.BrowseProduct1.collectionModel}" var="row"
+                rows="#{bindings.BrowseProduct1.rangeSize}"
+                emptyText="#{bindings.BrowseProduct1.viewable ? 'No rows yet.' : 'Access Denied.'}"
+                fetchSize="#{bindings.BrowseProduct1.rangeSize}"
+                width="100%" columnStretching="last"
+                partialTriggers="::SubCategory"
+                rendered="#{bindings.param_CategoryId != null &amp;&amp; bindings.param_SubCategoryId != null}"
+                id="table2">
+        <af:column sortProperty="ProductName" sortable="false"
+                   headerText="#{bindings.BrowseProduct1.hints.ProductName.label}" width="105"
+                   id="column2">
+          <af:commandLink text="#{row.ProductName}"
+                          actionListener="#{bindings.setCurrentRowWithKeyValue.execute}"
+                          disabled="#{!bindings.setCurrentRowWithKeyValue.enabled}"
+                          action="detail" id="outputText2"/>
+        </af:column>
+        <af:column sortProperty="Description" sortable="false"
+                   headerText="#{bindings.BrowseProduct1.hints.Description.label}" width="106"
+                   id="column3">
+          <af:outputText value="#{row.Description}" id="outputText3"/>
+        </af:column>
+        <af:column sortProperty="ListPrice" sortable="false"
+                   headerText="#{bindings.BrowseProduct1.hints.ListPrice.label}" width="319"
+                   id="column5">
+          <af:outputText value="#{row.ListPrice}" id="outputText5">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.BrowseProduct1.hints.ListPrice.format}"/>
+          </af:outputText>
+        </af:column>
+      </af:table>
+      <f:facet name="toolbar">
+        <af:toolbar id="ipht1">
+          <af:commandButton text="#{storefrontuiBundle.SEARCH}"
+                            action="search" id="iphcb1"/>
+          <af:commandButton text="#{storefrontuiBundle.SHOW_CART}"
+                            action="cart" id="iphcb2"/>
+        </af:toolbar>
+      </f:facet>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</jsp:root>

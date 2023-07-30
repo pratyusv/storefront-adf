@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=windows-1252"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:pageTemplate viewId="/oracle/storefront/ui/pages/templates/MainPageTemplate.jspx"
+                         id="pt1">
+          <f:facet name="companyLogo">
+            <af:image source="/store.gif" shortDesc="Storefront Logo" id="i1"/>
+          </f:facet>
+          <f:facet name="tab1Content">
+            <af:region value="#{bindings.ProductCategoryFlow1.regionModel}"
+                       id="Produ1"/>
+          </f:facet>
+          <f:facet name="tab2Content">
+            <af:region value="#{bindings.ShowSuppliersFlow1.regionModel}"
+                       id="ShowS1"/>
+          </f:facet>
+          <f:facet name="mainContent">
+            <af:region value="#{bindings.ShoppingFlow1.regionModel}"
+                       id="Shopp1"/>
+          </f:facet>
+          <f:attribute name="companyName"
+                       value="Storefront Demo"/>
+          <f:attribute name="tab1Title"
+                       value="Categories"/>
+          <f:attribute name="tab2Title"
+                       value="Suppliers"/>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

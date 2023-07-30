@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="ShoppingCartFlow">
+    <default-activity>ChooseAction</default-activity>
+    <input-parameter-definition>
+      <name>Action</name>
+      <value>#{pageFlowScope.Action}</value>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition>
+      <name>ProductId</name>
+      <value>#{pageFlowScope.ProductId}</value>
+    </input-parameter-definition>
+    <view id="ShoppingCart">
+      <page>/oracle/storefront/ui/pages/ShoppingCart.jsff</page>
+    </view>
+    <task-flow-return id="Shop">
+      <outcome>
+        <name>shop</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="Checkout">
+      <outcome>
+        <name>checkout</name>
+      </outcome>
+    </task-flow-return>
+    <method-call id="addItemToCart">
+      <method>#{bindings.addItemToCart.execute}</method>
+      <outcome>
+        <fixed-outcome>done</fixed-outcome>
+      </outcome>
+    </method-call>
+    <router id="ChooseAction">
+      <case>
+        <expression>#{pageFlowScope.Action == 'Add'}</expression>
+        <outcome>add</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.Action == 'Display'}</expression>
+        <outcome>display</outcome>
+      </case>
+      <default-outcome>display</default-outcome>
+    </router>
+    <method-call id="Commit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome>
+        <fixed-outcome>done</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule>
+      <from-activity-id>ShoppingCart</from-activity-id>
+      <control-flow-case>
+        <from-outcome>shop</from-outcome>
+        <to-activity-id>Shop</to-activity-id>
+      </control-flow-case>
+      <control-flow-case>
+        <from-outcome>checkout</from-outcome>
+        <to-activity-id>Checkout</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule>
+      <from-activity-id>addItemToCart</from-activity-id>
+      <control-flow-case>
+        <from-outcome>done</from-outcome>
+        <to-activity-id>Commit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule>
+      <from-activity-id>ChooseAction</from-activity-id>
+      <control-flow-case>
+        <from-outcome>display</from-outcome>
+        <to-activity-id>ShoppingCart</to-activity-id>
+      </control-flow-case>
+      <control-flow-case>
+        <from-outcome>add</from-outcome>
+        <to-activity-id>addItemToCart</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule>
+      <from-activity-id>Commit</from-activity-id>
+      <control-flow-case>
+        <from-outcome>done</from-outcome>
+        <to-activity-id>ShoppingCart</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

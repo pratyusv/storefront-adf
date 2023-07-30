@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="storefrontuiBundle"
+         value="#{adfBundle['oracle.storefront.ui.StorefrontUIBundle']}"/>
+  <af:panelGroupLayout layout="scroll" id="oohpgl1">
+    <af:panelHeader text="#{storefrontuiBundle.SEARCH_PRODUCTS}" id="oohph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.SearchByNameQuery.queryDescriptor}"
+                model="#{bindings.SearchByNameQuery.queryModel}"
+                queryListener="#{bindings.SearchByNameQuery.processQuery}"
+                queryOperationListener="#{bindings.SearchByNameQuery.processQueryOperation}"
+                resultComponentId="::resId1"/>
+      <af:table value="#{bindings.BrowseProduct.collectionModel}" var="row"
+                rows="#{bindings.BrowseProduct.rangeSize}"
+                emptyText="#{bindings.BrowseProduct.viewable ? 'No rows yet.' : 'Access Denied.'}"
+                fetchSize="#{bindings.BrowseProduct.rangeSize}" id="resId1"
+                width="100%" columnStretching="last">
+        <af:column sortProperty="ProductName" sortable="false"
+                   headerText="#{bindings.BrowseProduct.hints.ProductName.label}"
+                   id="oohc1">
+          <af:commandLink actionListener="#{bindings.setCurrentRowWithKey.execute}"
+                          text=""
+                          disabled="#{!bindings.setCurrentRowWithKey.enabled}"
+                          action="detail" partialTriggers="::resId1"
+                          id="oohcl1">
+            <af:outputText value="#{row.bindings.ProductName.inputValue}"
+                           id="oohot1"/>
+          </af:commandLink>
+        </af:column>
+        <af:column sortProperty="CategoryName" sortable="false"
+                   headerText="#{bindings.BrowseProduct.hints.CategoryName.label}"
+                   id="oohc2">
+          <af:outputText value="#{row.bindings.CategoryName.inputValue}"
+                         id="oohot2"/>
+        </af:column>
+        <af:column sortProperty="ListPrice" sortable="false"
+                   headerText="#{bindings.BrowseProduct.hints.ListPrice.label}"
+                   id="oohc3">
+          <af:outputText value="#{row.bindings.ListPrice.inputValue}"
+                         id="oohot3">
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.BrowseProduct.hints.ListPrice.format}"/>
+          </af:outputText>
+        </af:column>
+        <af:column sortProperty="Description" sortable="false"
+                   headerText="#{bindings.BrowseProduct.hints.Description.label}"
+                   id="oohc4">
+          <af:outputText value="#{row.bindings.Description.inputValue}"
+                         id="oohot4"/>
+        </af:column>
+      </af:table>
+      <f:facet name="toolbar">
+        <af:toolbar id="ooht1">
+          <af:commandToolbarButton text="#{storefrontuiBundle.SHOP}"
+                                   action="shop" id="oohctb1"/>
+        </af:toolbar>
+      </f:facet>
+    </af:panelHeader>
+  </af:panelGroupLayout>
+</jsp:root>

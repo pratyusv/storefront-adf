@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="BrowseSuppliersPageDef"
+                Package="oracle.storefront.ui.pages">
+  <parameters/>
+  <executables>
+    <iterator Binds="Supplier1" RangeSize="25"
+              DataControl="FODSupplierAMDataControl" id="Supplier1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Supplier1Iterator" id="Supplier1">
+      <nodeDefinition DefName="oracle.fod.storefront.uiview.SupplierVO"
+                      Name="Supplier10">
+        <AttrNames>
+          <Item Value="SupplierId"/>
+          <Item Value="SupplierName"/>
+          <Item Value="SupplierStatus"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="Email"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Supplier1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="FODSupplierAMDataControl"
+            RequiresUpdateModel="true" Action="commitTransaction"
+            InstanceName="FODSupplierAMDataControl"/>
+  </bindings>
+</pageDefinition>

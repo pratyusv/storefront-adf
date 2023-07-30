@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<MetadataDirectory xmlns="http://xmlns.oracle.com/adfm/metainf" version="11.1.1.0.0">
+  <DataBindingRegistry path="oracle/fod/storefront/DataBindings.cpx"/>
+<BusinessComponentServiceRegistry path="oracle/fod/storefront/module/common/bc4j.xcfg"/>
+   <BusinessComponentProjectRegistry path="oracle/fod/storefront/StorefrontModel.jpx"/>
+   <BusinessComponentServiceRegistry path="oracle/fod/storefront/test/common/bc4j.xcfg"/>
+</MetadataDirectory>

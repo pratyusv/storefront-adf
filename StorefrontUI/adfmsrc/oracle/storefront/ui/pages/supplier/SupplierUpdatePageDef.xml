@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.51.29" id="SupplierUpdatePageDef"
+                Package="oracle.storefront.ui.pages.supplier">
+  <parameters/>
+  <executables>
+    <iterator Binds="Supplier1" RangeSize="25"
+              DataControl="FODSupplierAMDataControl" id="Supplier1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Supplier1Iterator" id="SupplierName">
+      <AttrNames>
+        <Item Value="SupplierName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="Supplier1Iterator" StaticList="false"
+          Uses="LOV_SupplierStatus" id="SupplierStatus" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="Supplier1Iterator" id="PhoneNumber">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Supplier1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

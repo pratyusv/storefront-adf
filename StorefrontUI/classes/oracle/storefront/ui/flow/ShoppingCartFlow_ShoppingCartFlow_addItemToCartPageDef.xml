@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.51.39"
+                id="ShoppingCartFlow_ShoppingCartFlow_addItemToCartPageDef"
+                Package="oracle.storefront.ui.flow" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="addItemToCart" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="addItemToCart"
+                  IsViewObjectMethod="false"
+                  DataControl="FODShoppingCartAMDataControl"
+                  InstanceName="FODShoppingCartAMDataControl.dataProvider">
+      <NamedData NDName="productId" NDValue="#{pageFlowScope.ProductId}"
+                 NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

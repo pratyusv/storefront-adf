@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.51.29" id="FODShoppingDashboardPageDef"
+                Package="oracle.storefront.ui.pages">
+  <parameters/>
+  <executables>
+    <taskFlow id="ProductCategoryFlow1"
+              taskFlowId="/WEB-INF/oracle/storefront/ui/flow/ProductCategoryFlow.xml#ProductCategoryFlow"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ShowSuppliersFlow1"
+              taskFlowId="/WEB-INF/oracle/storefront/ui/flow/ShowSuppliersFlow.xml#ShowSuppliersFlow"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="ShoppingFlow1"
+              taskFlowId="/WEB-INF/oracle/storefront/ui/flow/ShoppingFlow.xml#ShoppingFlow"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"
+              RefreshCondition="#{requestScope.refreshLocalArea}">
+      <parameters>
+        <parameter id="CategoryId" xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                   value="#{requestScope.CategoryId}"/>
+        <parameter id="CategoryName"
+                   xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                   value="#{requestScope.CategoryName}"/>
+        <parameter id="SubCategoryId"
+                   xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                   value="#{requestScope.SubCategoryId}"/>
+        <parameter id="SubCategoryName"
+                   xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                   value="#{requestScope.SubCategoryName}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings>
+    <methodAction id="refreshCategory"
+                  InstanceName="FODShoppingDashboardBean.dataProvider"
+                  DataControl="FODShoppingDashboardBean"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="refreshCategory" IsViewObjectMethod="false">
+      <NamedData NDName="category"
+                 NDType="oracle.storefront.ui.bean.FODCategoryBean"/>
+    </methodAction>
+  </bindings>
+  <eventMap xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+    <event name="FODSelectCategory">
+      <producer region="ProductCategoryFlow1.ProductCategoryPageDef.onNodeClicked">
+        <consumer region="" handler="refreshCategory">
+          <parameters>
+            <parameter name="category" value="${payLoad}"/>
+          </parameters>
+        </consumer>
+      </producer>
+    </event>
+  </eventMap>
+</pageDefinition>

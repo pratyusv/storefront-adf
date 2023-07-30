@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation"
+  Name="OrderEO"
+  Version="11.1.1.51.29"
+  DBObjectType="table"
+  DBObjectName="ORDERS"
+  AliasName="OrderEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="oracle.fod.storefront.entity.OrderEOImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_superClass"
+      Value="oracle.fod.storefront.entity.BaseEntityImpl"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="PaymentOptionVVO1"
+    ViewObjectName="oracle.fod.storefront.view.PaymentOptionVVO">
+    <ViewCriteriaUsage
+      Name="PaymentOptionVVOCriteria"
+      FullName="oracle.fod.storefront.view.PaymentOptionVVO.PaymentOptionVVOCriteria"/>
+  </ViewAccessor>
+  <ViewAccessor
+    Name="CustomerVVO1"
+    ViewObjectName="oracle.fod.storefront.view.CustomerVVO"/>
+  <Attribute
+    Name="OrderId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="ORDER_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ORDERS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OrderDate"
+    IsNotNull="true"
+    ColumnName="ORDER_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ORDER_DATE"/>
+        <TOOLTIP
+          ResId="ORDER_DATE_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="OrderShippedDate"
+    ColumnName="ORDER_SHIPPED_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ORDER_SHIPPED_DATE"/>
+        <TOOLTIP
+          ResId="ORDER_SHIPPED_TOOLTIP"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="OrderStatusCode"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="ORDER_STATUS_CODE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="ORDER_STATUS"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:ListValidationBean
+      Name="OrderStatusCode_Rule_0"
+      ResId="INVALID_VALUE"
+      OnAttribute="OrderStatusCode"
+      OperandType="SQL"
+      Inverse="false"
+      ListValue="select distinct lookup_code from lookup_codes where lookup_type = 'ORDER_STATUS_CODE'"/>
+  </Attribute>
+  <Attribute
+    Name="OrderTotal"
+    IsNotNull="true"
+    Precision="8"
+    Scale="2"
+    ColumnName="ORDER_TOTAL"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="oracle.fod.storefront.entity.OrderEO.OrderTotal_FMT_FORMATTER"/>
+        <LABEL
+          ResId="ORDER_TOTAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CustomerId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="CUSTOMER_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShipToName"
+    Precision="120"
+    ColumnName="SHIP_TO_NAME"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="120"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShipToAddressId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="SHIP_TO_ADDRESS_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShipToPhoneNumber"
+    Precision="20"
+    ColumnName="SHIP_TO_PHONE_NUMBER"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShippingOptionId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="SHIPPING_OPTION_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PaymentOptionId"
+    Precision="16"
+    Scale="0"
+    ColumnName="PAYMENT_OPTION_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DiscountId"
+    Precision="15"
+    Scale="0"
+    ColumnName="DISCOUNT_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CouponId"
+    Precision="15"
+    Scale="0"
+    ColumnName="COUPON_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FreeShippingFlag"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="FREE_SHIPPING_FLAG"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CustomerCollectFlag"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="CUSTOMER_COLLECT_FLAG"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CollectionWarehouseId"
+    Precision="15"
+    Scale="0"
+    ColumnName="COLLECTION_WAREHOUSE_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GiftwrapFlag"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="GIFTWRAP_FLAG"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GiftwrapMessage"
+    Precision="2000"
+    ColumnName="GIFTWRAP_MESSAGE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORDERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="CREATED_BY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORDERS"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    ColumnName="CREATION_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="ORDERS"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="LAST_UPDATED_BY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORDERS"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    ColumnName="LAST_UPDATE_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="ORDERS"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ObjectVersionId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="OBJECT_VERSION_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ORDERS"
+    HistoryColumn="VersionHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Person"
+    Association="oracle.fod.storefront.assoc.OrdersPersonsFkAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.OrdersPersonsFkAssoc.Person"
+    AssociationOtherEnd="oracle.fod.storefront.assoc.OrdersPersonsFkAssoc.Order"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="OrderItem"
+    Association="oracle.fod.storefront.assoc.OrderItemsOrdersFkAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.OrderItemsOrdersFkAssoc.OrderItem"
+    AssociationOtherEnd="oracle.fod.storefront.assoc.OrderItemsOrdersFkAssoc.Order"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="OrderItem1"
+    Association="oracle.fod.storefront.assoc.OrdersOrderItemsAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.OrdersOrderItemsAssoc.OrderItem1"
+    AssociationOtherEnd="oracle.fod.storefront.assoc.OrdersOrderItemsAssoc.Order1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Address"
+    Association="oracle.fod.storefront.assoc.OrdersShippingAddressesAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.OrdersShippingAddressesAssoc.Address"
+    AssociationOtherEnd="oracle.fod.storefront.assoc.OrdersShippingAddressesAssoc.Order"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="PaymentOption"
+    Association="oracle.fod.storefront.assoc.OrdersPaymentOptionsFkAssoc"
+    AssociationEnd="oracle.fod.storefront.assoc.OrdersPaymentOptionsFkAssoc.PaymentOption"
+    AssociationOtherEnd="oracle.fod.storefront.assoc.OrdersPaymentOptionsFkAssoc.Order"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="OrdersPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ORDERS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.OrderId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012556">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012556"/>
+      <Attr Name="_checkCondition" Value='"ORDER_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.OrderId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012557">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012557"/>
+      <Attr Name="_checkCondition" Value='"ORDER_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.OrderDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012558">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012558"/>
+      <Attr Name="_checkCondition" Value='"ORDER_STATUS_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.OrderStatusCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012559">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012559"/>
+      <Attr Name="_checkCondition" Value='"ORDER_TOTAL" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.OrderTotal"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012560">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012560"/>
+      <Attr Name="_checkCondition" Value='"CUSTOMER_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.CustomerId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012561">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012561"/>
+      <Attr Name="_checkCondition" Value='"SHIP_TO_ADDRESS_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.ShipToAddressId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012562">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012562"/>
+      <Attr Name="_checkCondition" Value='"SHIPPING_OPTION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.ShippingOptionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012563">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012563"/>
+      <Attr Name="_checkCondition" Value='"FREE_SHIPPING_FLAG" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.FreeShippingFlag"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012564">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012564"/>
+      <Attr Name="_checkCondition" Value='"CUSTOMER_COLLECT_FLAG" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.CustomerCollectFlag"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012565">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012565"/>
+      <Attr Name="_checkCondition" Value='"GIFTWRAP_FLAG" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.GiftwrapFlag"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012566">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012566"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.CreatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012567">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012567"/>
+      <Attr Name="_checkCondition" Value='"CREATION_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.CreationDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012568">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012568"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.LastUpdatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012569">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012569"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.LastUpdateDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012570">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012570"/>
+      <Attr Name="_checkCondition" Value='"OBJECT_VERSION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.ObjectVersionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersAddressesFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ADDRESSES_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_ADDRESSES_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.ShipToAddressId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersDiscountsFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="DISCOUNTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_DISCOUNTS_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.DiscountId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersDiscountsFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="DISCOUNTS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_DISCOUNTS_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.CouponId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersPaymentOptionsFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PAYMENT_OPTIONS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_PAYMENT_OPTIONS_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.PaymentOptionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersPersonsFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PERSONS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_PERSONS_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.CustomerId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersShippingOptionsFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SHIPPING_OPTIONS_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_SHIPPING_OPTIONS_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.ShippingOptionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OrdersWarehousesFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="WAREHOUSES_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ORDERS_WAREHOUSES_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.OrderEO.CollectionWarehouseId"/>
+    </AttrArray>
+  </Key>
+  <validation:UniqueKeyValidationBean
+    Name="OrderEO_Rule_0"
+    ResId="DUPLICATE_ID"
+    KeyName="OrdersPk">
+    <validation:OnAttributes>
+      <validation:Item
+        Value="OrderId"/>
+    </validation:OnAttributes>
+  </validation:UniqueKeyValidationBean>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="oracle.fod.storefront.StorefrontModelBundle"/>
+  </ResourceBundle>
+</Entity>

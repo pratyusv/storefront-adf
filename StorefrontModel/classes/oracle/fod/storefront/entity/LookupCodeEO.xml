@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LookupCodeEO"
+  Version="11.1.1.51.15"
+  DBObjectType="table"
+  DBObjectName="LOOKUP_CODES"
+  AliasName="LookupCodeEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="oracle.fod.storefront.entity.BaseEntityImpl">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_superClass"
+      Value="oracle.fod.storefront.entity.BaseEntityImpl"/>
+  </DesignTime>
+  <Attribute
+    Name="LookupType"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="LOOKUP_TYPE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="LOOKUP_CODES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LookupCode"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="LOOKUP_CODE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="LOOKUP_CODES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Meaning"
+    IsNotNull="true"
+    Precision="80"
+    ColumnName="MEANING"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="LOOKUP_CODES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="80"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="240"
+    ColumnName="DESCRIPTION"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="LOOKUP_CODES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Language"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="LANGUAGE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="LOOKUP_CODES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SourceLang"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="SOURCE_LANG"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="LOOKUP_CODES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="CREATED_BY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="LOOKUP_CODES"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    ColumnName="CREATION_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="LOOKUP_CODES"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    Precision="60"
+    ColumnName="LAST_UPDATED_BY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="LOOKUP_CODES"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="60"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    ColumnName="LAST_UPDATE_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="LOOKUP_CODES"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ObjectVersionId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="OBJECT_VERSION_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="LOOKUP_CODES"
+    HistoryColumn="VersionHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="LookupCodesPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="LOOKUP_CODES_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.LookupCodeEO.LookupType"/>
+      <Item Value="oracle.fod.storefront.entity.LookupCodeEO.LookupCode"/>
+      <Item Value="oracle.fod.storefront.entity.LookupCodeEO.Language"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012692">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012692"/>
+      <Attr Name="_checkCondition" Value='"LOOKUP_TYPE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.LookupCodeEO.LookupType"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012693">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012693"/>
+      <Attr Name="_checkCondition" Value='"LOOKUP_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.LookupCodeEO.LookupCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012694">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012694"/>
+      <Attr Name="_checkCondition" Value='"MEANING" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.LookupCodeEO.Meaning"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012695">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012695"/>
+      <Attr Name="_checkCondition" Value='"LANGUAGE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.LookupCodeEO.Language"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012696">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012696"/>
+      <Attr Name="_checkCondition" Value='"SOURCE_LANG" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.LookupCodeEO.SourceLang"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012697">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012697"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.LookupCodeEO.CreatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012698">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012698"/>
+      <Attr Name="_checkCondition" Value='"CREATION_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.LookupCodeEO.CreationDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012699">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012699"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.LookupCodeEO.LastUpdatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012700">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012700"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.LookupCodeEO.LastUpdateDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0012701">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0012701"/>
+      <Attr Name="_checkCondition" Value='"OBJECT_VERSION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.fod.storefront.entity.LookupCodeEO.ObjectVersionId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="CheckoutFlow">
+    <default-activity>CheckoutShipping</default-activity>
+    <transaction>
+      <new-transaction/>
+    </transaction>
+    <view id="CheckoutShipping">
+      <page>/oracle/storefront/ui/pages/CheckoutShipping.jsff</page>
+      <train-stop>
+        <display-name>Shipping</display-name>
+      </train-stop>
+    </view>
+    <view id="CheckoutPayment">
+      <page>/oracle/storefront/ui/pages/CheckoutPayment.jsff</page>
+      <train-stop>
+        <display-name>Billing</display-name>
+      </train-stop>
+    </view>
+    <view id="CheckoutConfirm">
+      <page>/oracle/storefront/ui/pages/CheckoutConfirm.jsff</page>
+      <train-stop>
+        <display-name>Confirmation</display-name>
+      </train-stop>
+    </view>
+    <task-flow-return id="CancelOrder">
+      <outcome>
+        <name>cancel</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="SubmitOrder">
+      <outcome>
+        <name>submit</name>
+        <commit/>
+      </outcome>
+    </task-flow-return>
+    <train/>
+    <control-flow-rule>
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case>
+        <from-outcome>cancel</from-outcome>
+        <to-activity-id>CancelOrder</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule>
+      <from-activity-id>CheckoutConfirm</from-activity-id>
+      <control-flow-case>
+        <from-outcome>submit</from-outcome>
+        <to-activity-id>SubmitOrder</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

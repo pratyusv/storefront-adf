@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<task-flow-registry xmlns="http://xmlns.oracle.com/adf/controller/rc">
+   <task-flow-descriptor path="WEB-INF/oracle/storefront/ui/flow/ShoppingCartFlow.xml" id="ShoppingCartFlow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="Action"/>
+      <input-parameter name="ProductId"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="WEB-INF/oracle/storefront/ui/flow/ShowSuppliersFlow.xml" id="ShowSuppliersFlow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/oracle/storefront/ui/flow/ShoppingFlow.xml" id="ShoppingFlow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="SubCategoryId"/>
+      <input-parameter name="CategoryName"/>
+      <input-parameter name="CategoryId"/>
+      <input-parameter name="SubCategoryName"/>
+   </task-flow-descriptor>
+   <task-flow-descriptor path="META-INF/adfc-config.xml" id="" type="" uses-page-fragments="false" library-internal="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/oracle/storefront/ui/flow/CheckoutFlow.xml" id="CheckoutFlow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="true"/>
+   <task-flow-descriptor path="WEB-INF/oracle/storefront/ui/flow/ProductCategoryFlow.xml" id="ProductCategoryFlow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false"/>
+   <task-flow-descriptor path="WEB-INF/oracle/storefront/ui/flow/ManageSupplierFlow.xml" id="ManageSupplierFlow" type="task-flow-definition" uses-page-fragments="true" library-internal="false" train="false">
+      <input-parameter name="SupplierAction"/>
+   </task-flow-descriptor>
+</task-flow-registry>

@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.0" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="oracle.fod.storefront.test.TestAM">
+      <AppModuleConfig name="11C771E63A4" ApplicationName="oracle.fod.storefront.test.TestAM" jbo.project="oracle.fod.storefront.StorefrontModel" BC4JConfigName="TestAMLocal" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="FOD">
+         <Security AppModuleJndiName="oracle.fod.storefront.test.TestAM"/>
+         <Tester FullProxyInterfaceName="oracle.fod.storefront.test.common.TestAM"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.fod.storefront.module.FODShoppingCartAM">
+      <AppModuleConfig name="11CDE66175C" ApplicationName="oracle.fod.storefront.module.FODShoppingCartAM" jbo.project="oracle.fod.storefront.StorefrontModel" BC4JConfigName="FODShoppingCartAMLocal" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="FOD">
+         <Security AppModuleJndiName="oracle.fod.storefront.module.FODShoppingCartAM"/>
+         <Tester FullProxyInterfaceName="oracle.fod.storefront.module.common.FODShoppingCartAM"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.fod.storefront.module.FODProductAM">
+      <AppModuleConfig name="11C714F8271" ApplicationName="oracle.fod.storefront.module.FODProductAM" jbo.project="oracle.fod.storefront.StorefrontModel" BC4JConfigName="FODProductAMLocal" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="FOD">
+         <Security AppModuleJndiName="oracle.fod.storefront.module.FODProductAM"/>
+         <Tester FullProxyInterfaceName="oracle.fod.storefront.module.common.FODProductAM"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.fod.storefront.module.FODSupplierAM">
+      <AppModuleConfig name="11C99F428F7" ApplicationName="oracle.fod.storefront.module.FODSupplierAM" jbo.project="oracle.fod.storefront.StorefrontModel" BC4JConfigName="FODSupplierAMLocal" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="FOD">
+         <Security AppModuleJndiName="oracle.fod.storefront.module.FODSupplierAM"/>
+         <Tester FullProxyInterfaceName="oracle.fod.storefront.module.common.FODSupplierAM"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.fod.storefront.module.Test">
+      <AppModuleConfig name="11C6FEC8C3F" ApplicationName="oracle.fod.storefront.module.Test" jbo.project="oracle.fod.storefront.StorefrontModel" BC4JConfigName="TestLocal" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="FOD">
+         <Security AppModuleJndiName="oracle.fod.storefront.module.Test"/>
+         <Tester FullProxyInterfaceName="oracle.fod.storefront.module.common.Test"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.fod.storefront.module.Test2">
+      <AppModuleConfig name="11C6FF5B145" ApplicationName="oracle.fod.storefront.module.Test2" jbo.project="oracle.fod.storefront.StorefrontModel" BC4JConfigName="Test2Local" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="FOD">
+         <Security AppModuleJndiName="oracle.fod.storefront.module.Test2"/>
+         <Tester FullProxyInterfaceName="oracle.fod.storefront.module.common.Test2"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.fod.storefront.module.FODCheckoutAM">
+      <AppModuleConfig name="11C8AB387ED" ApplicationName="oracle.fod.storefront.module.FODCheckoutAM" jbo.project="oracle.fod.storefront.StorefrontModel" BC4JConfigName="FODCheckoutAMLocal" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="FOD">
+         <Security AppModuleJndiName="oracle.fod.storefront.module.FODCheckoutAM"/>
+         <Tester FullProxyInterfaceName="oracle.fod.storefront.module.common.FODCheckoutAM"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="oracle.fod.storefront.module.FODCategoryAM">
+      <AppModuleConfig name="11CAFD6B7F3" DeployPlatform="LOCAL" JDBCName="FOD" jbo.project="oracle.fod.storefront.StorefrontModel" BC4JConfigName="FODCategoryAMLocal" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="oracle.fod.storefront.module.FODCategoryAM">
+         <Security AppModuleJndiName="oracle.fod.storefront.module.FODCategoryAM"/>
+         <Tester FullProxyInterfaceName="oracle.fod.storefront.module.common.FODCategoryAM" testerLocales="sq,sq_AL"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

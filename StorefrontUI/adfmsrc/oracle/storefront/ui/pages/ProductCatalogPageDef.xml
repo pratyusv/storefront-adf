@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="ProductCatalogPageDef"
+                Package="oracle.storefront.ui.pages">
+  <parameters>
+    <parameter id="param_CategoryId" value="#{pageFlowScope.CategoryId}"/>
+    <parameter id="param_CategoryName" value="#{pageFlowScope.CategoryName}"/>
+    <parameter id="param_SubCategoryId" value="#{pageFlowScope.SubCategoryId}"/>
+    <parameter id="param_SubCategoryName"
+               value="#{pageFlowScope.SubCategoryName}"/>
+  </parameters>
+  <executables>
+    <invokeAction Binds="setCurrentCategory" id="invokeSetCurrrentCategory"
+                  Refresh="ifNeeded"/>
+    <iterator Binds="BrowseCategory1" RangeSize="25"
+              DataControl="FODProductAMDataControl"
+              id="BrowseCategory1Iterator"/>
+    <iterator Binds="BrowseSubCategory1" RangeSize="25"
+              DataControl="FODProductAMDataControl"
+              id="BrowseSubCategory1Iterator"/>
+    <iterator Binds="BrowseProduct1" RangeSize="25"
+              DataControl="FODProductAMDataControl"
+              id="BrowseProduct1Iterator"/>
+    <iterator Binds="BrowseProduct" RangeSize="25"
+              DataControl="FODProductAMDataControl" id="BrowseProductIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="BrowseCategory1Iterator" id="BrowseCategory1">
+      <nodeDefinition DefName="oracle.fod.storefront.uiview.BrowseCategoryVO"
+                      Name="BrowseCategory10">
+        <AttrNames>
+          <Item Value="CategoryName"/>
+          <Item Value="CategoryDescription"/>
+          <Item Value="CategoryId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="BrowseSubCategory1Iterator" id="BrowseSubCategory1">
+      <nodeDefinition DefName="oracle.fod.storefront.uiview.BrowseSubCategoryVO"
+                      Name="BrowseSubCategory10">
+        <AttrNames>
+          <Item Value="CategoryName"/>
+          <Item Value="CategoryDescription"/>
+          <Item Value="CategoryId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="BrowseProduct1Iterator" id="BrowseProduct1">
+      <nodeDefinition DefName="oracle.fod.storefront.uiview.BrowseProductVO"
+                      Name="BrowseProduct10">
+        <AttrNames>
+          <Item Value="ProductName"/>
+          <Item Value="Description"/>
+          <Item Value="ListPrice"/>
+          <Item Value="ProductId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="BrowseProductIterator" id="setCurrentRowWithKeyValue"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDType="java.lang.String"
+                 NDValue="#{row.ProductId}"/>
+    </action>
+    <methodAction id="setCurrentCategory"
+                  InstanceName="FODProductAMDataControl.dataProvider"
+                  DataControl="FODProductAMDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="setCurrentCategory" IsViewObjectMethod="false">
+      <NamedData NDName="categoryId" NDType="oracle.jbo.domain.Number"
+                 NDValue="#{bindings.param_CategoryId}"/>
+      <NamedData NDName="subCategoryId" NDType="oracle.jbo.domain.Number"
+                 NDValue="#{bindings.param_SubCategoryId}"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>
